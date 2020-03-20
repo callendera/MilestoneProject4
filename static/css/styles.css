@@ -1,3 +1,7 @@
 form {
     width: 50%;
 }
+
+.product-image {
+    background-image: url('{{ MEDIA_URL }}{{ product_image }}');
+}
