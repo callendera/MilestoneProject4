@@ -25,7 +25,8 @@ SECRET_KEY = 'e7&i$=dc^*+xz4f91a^60w1fa(+@wi+!#==wuw!fd2o+7iic!8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io']
+ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io',
+'localhost']
 
 
 # Application definition
@@ -37,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_forms_bootstrap',
+    'accounts',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'cactus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,6 +103,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.EmailAuth'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
