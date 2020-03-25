@@ -5,3 +5,70 @@ form {
 .product-image {
     background-image: url('{{ MEDIA_URL }}{{ product_image }}');
 }
+
+.spacing-navbar-navs {
+    width: 600px;
+    justify-content: flex-end;
+}
+
+.my-input-line {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: 0px;
+}
+
+.my-navbar {
+    background-color: white;
+}
+
+.my-nav-item {
+    color: black;
+}
+
+.my-logo {
+    height: 100px;
+    width: 150px;
+}
+
+.didact-gothic-font {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.arimo-font {
+    font-family: 'Arimo', sans-serif;
+
+}
+
+/*---MEDIA QUERIES---*/
+
+/*--- adjustemnts for different screensizes, small-->big ---*/
+
+@media (min-width: 576px) {
+    
+}
+
+@media (min-width: 768px) {
+    
+
+}
+
+@media (min-width: 992px) {
+    
+
+}
+
+@media (min-width: 1200px) {
+   
+}
+
+@media (min-width: 1400px) {
+    .my-logo {
+    height: 200px;
+    width: 250px;
+    }
+}
