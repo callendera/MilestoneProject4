@@ -15,6 +15,7 @@ form {
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+    width: 200px;
 }
 
 .search-btn {
@@ -27,12 +28,12 @@ form {
 }
 
 .my-nav-item {
-    color: black;
+    padding: 15px;
 }
 
 .my-logo {
-    height: 100px;
-    width: 150px;
+    height: 75px;
+    width: 100px;
 }
 
 .didact-gothic-font {

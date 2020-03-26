@@ -36,8 +36,8 @@
   </div>
 </form>
          <a class="navbar-brand" href="#">
-         <img src="{% static 'images/AH.png' %}" class="my-logo" alt="Andrea's Haberdashery">
-            
+         <img src="{% static 'images/AH.png' %}" class="my-logo d-none d-sm-block" alt="Andrea's Haberdashery">
+         <img src="{% static 'images/AndreaLogo.png' %}" class="my-logo d-block d-sm-none" alt="Andrea's Haberdashery">
          </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,17 +47,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav spacing-navbar-navs">
       {% if user.is_authenticated %}
-            <li class="nav-item"><a href="{% url 'profile' %}" class="my-nav-item nav-link">My Account <i class="fas fa-user"></i></a></li>
-            <li class="nav-item"><a href="{% url 'logout' %}" class= "my-nav-item nav-link"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'profile' %}" class="nav-link"><i class="fas fa-user"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'logout' %}" class= "nav-link"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
-            <li class="nav-item"><a href="{% url 'login' %}" class="my-nav-item nav-link"><i class="fas fa-sign-in-alt"></i></a></li>
-            <li class="nav-item"><a href="{% url 'registration' %}" class="my-nav-item nav-link"><i class="fas fa-user-plus"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'login' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'registration' %}" class="nav-link"><i class="fas fa-user-plus"></i></a></li>
             {% endif %}
-            <li class="nav-item">
-                <a href="{% url 'view_cart' %}" class="my-nav-item nav-link">
-                    Cart <i class="fa fa-shopping-cart"></i>
+            <li class="nav-item my-nav-item">
+                <a href="{% url 'view_cart' %}" class="nav-link">
+                    <i class="fa fa-shopping-cart"></i>
                     {% if product_count > 0 %}
-                    <label class="badge badge-warning">{{ product_count }}</label>
+                    <label class="badge badge-pill badge-info">{{ product_count }}</label>
                     {% endif %}
                 </a>
             </li>
@@ -68,7 +68,7 @@
       <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
     </div>
   </div>
-</form>
+  </footer>
     </ul>
     
   </div>
