@@ -46,12 +46,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav spacing-navbar-navs">
+        <li class="nav-item my-nav-item"><a href="#" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Home"><i class="fas fa-home"></i></a></li>
+
       {% if user.is_authenticated %}
-            <li class="nav-item my-nav-item"><a href="{% url 'profile' %}" class="nav-link"><i class="fas fa-user"></i></a></li>
-            <li class="nav-item my-nav-item"><a href="{% url 'logout' %}" class= "nav-link"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'profile' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fas fa-user"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'logout' %}" class= "nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign Out"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
-            <li class="nav-item my-nav-item"><a href="{% url 'login' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i></a></li>
-            <li class="nav-item my-nav-item"><a href="{% url 'registration' %}" class="nav-link"><i class="fas fa-user-plus"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In"><i class="fas fa-sign-in-alt"></i></a></li>
+            <li class="nav-item my-nav-item"><a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Create Account"><i class="fas fa-user-plus"></i></a></li>
             {% endif %}
             <li class="nav-item my-nav-item">
                 <a href="{% url 'view_cart' %}" class="nav-link">
@@ -68,7 +70,7 @@
       <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
     </div>
   </div>
-  </footer>
+  </form>
     </ul>
     
   </div>
@@ -89,11 +91,37 @@
         {% block content %} {% endblock %}
     </div>
     </div>
-    <footer>
-        <div class="container arimo-font">
-            <p></p>
+    <footer class="didact-gothic-font">
+        <div class="container text-center padding-footer-content">
+            <div class="row contact-info">
+                <div class="col-4 footer-NPO">
+                    <p>Andrea's Haberdashery Inc.</p>
+                    <p>Andrea Callender Founder and CEO</p>
+                    <p>< / > by Autumn Callender </p>
+                </div>
+                <div class="col-4">
+                    <p> 555-434-6979</p>
+
+                    <p> 123 Alphabet RD.</p>
+                    <p> Washington Court House, Ohio 43160</p>
+                </div>
+                <div class="col-4">
+                    <ul class="list-inline footer-social-media">
+                        <!--atrribute is given to make the social media symbol a link to the facebook page-->
+                        <li class="list-inline-item"><a href="https://www.facebook.com/andrea.callender.1" target="_blank"><i class="fab fa-facebook-f"></i>
+                    <span class="sr-only">Facebook</span></a></li>
+                        <!--atrribute is given to make the social media symbol a link to the twitter page-->
+                        <li class="list-inline-item "><a href="https://twitter.com/annie_luvnlime" target="_blank"><i class="fab fa-twitter"></i>
+                    <span class="sr-only">Twitter</span></a></li>
+                        <!--atrribute is given to make the social media symbol a link to the youtube page-->
+                        <li class="list-inline-item "><a href="https://www.instagram.com/callenderandrea/?hl=en" target="_blank"><i class="fab fa-instagram"></i>
+                    <span class="sr-only">Instagram</span></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
+
 
 
     <!--used for form submission js-->

@@ -45,6 +45,45 @@ form {
 
 }
 
+footer {
+    /*--- background is a darker grey to set it apart from te rest of webpage ---*/
+    background-color: #7f7f7f;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.padding-footer-content {
+    padding: 20px
+}
+
+.footer-social-media {
+    /*---creates appropriate spacing for social links in footer--*/
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.footer-social-media i {
+    /*---blue color--*/
+    color: #03A9F4;
+    font-size: 20px;
+    padding: 15px;
+
+}
+
+.footer-social-media i:hover {
+    /*--- color of background: darker green ---*/
+    color: #2567ae;
+    /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
+    the color will gradually ease in and then ease out. ---*/
+    transition: all 0.40s ease-in-out;
+    -moz-transition: all 0.40s ease-in-out;
+    -webkit-transition: all 0.40s ease-in-out;
+    -o-transition: all 0.40s ease-in-out;
+    /*--- adjustments for each web browser ---*/
+}
+
+
+
 /*---MEDIA QUERIES---*/
 
 /*--- adjustemnts for different screensizes, small-->big ---*/
