@@ -1,10 +1,11 @@
+body {
+    padding-top: 100px;
+}
+
 form {
     width: 50%;
 }
 
-.product-image {
-    background-image: url('{{ MEDIA_URL }}{{ product_image }}');
-}
 
 .spacing-navbar-navs {
     width: 600px;
@@ -82,7 +83,39 @@ footer {
     /*--- adjustments for each web browser ---*/
 }
 
+.product-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
 
+caption p {
+    word-wrap: break-word;
+}
+
+.row.row-flex {
+display: flex;
+flex-wrap: wrap;
+margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 20px;
+}
+
+.panel-body {
+    padding: 10px;
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.product-description {
+    min-height: 40px;
+}
 
 /*---MEDIA QUERIES---*/
 
