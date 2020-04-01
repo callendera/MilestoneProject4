@@ -10,7 +10,7 @@
     <title>Andrea's Haberdashery</title>
 
     <!--this code provides my font-->
-<link href="https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic&display=swap" rel="stylesheet">
 
     <!--this code provides my Icons-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -22,74 +22,71 @@
 
     <!--CSS from Fancybox COME BACK TO DECIDE IF YOU WANT TO USE FANCY BOX OR NOT-->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> -->
+
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-lg my-navbar navbar-light arimo-font">
-<form class="form-inline my-2 my-lg-0 d-none d-sm-block" action="{% url 'search' %}" method="get">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control my-input-line" placeholder="" name="q">
-      <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
-    </div>
-  </div>
-</form>
-         <a class="navbar-brand" href="#">
-         <img src="{% static 'images/AH.png' %}" class="my-logo d-none d-sm-block" alt="Andrea's Haberdashery">
-         <img src="{% static 'images/AndreaLogo.png' %}" class="my-logo d-block d-sm-none" alt="Andrea's Haberdashery">
-         </a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav spacing-navbar-navs">
-        <li class="nav-item my-nav-item"><a href="#" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Home"><i class="fas fa-home"></i></a></li>
-
-      {% if user.is_authenticated %}
-            <li class="nav-item my-nav-item"><a href="{% url 'profile' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fas fa-user"></i></a></li>
-            <li class="nav-item my-nav-item"><a href="{% url 'logout' %}" class= "nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign Out"><i class="fas fa-sign-out-alt"></i></a></li>
-            {% else %}
-            <li class="nav-item my-nav-item"><a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In"><i class="fas fa-sign-in-alt"></i></a></li>
-            <li class="nav-item my-nav-item"><a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Create Account"><i class="fas fa-user-plus"></i></a></li>
-            {% endif %}
-            <li class="nav-item my-nav-item">
-                <a href="{% url 'view_cart' %}" class="nav-link">
-                    <i class="fa fa-shopping-cart"></i>
-                    {% if product_count > 0 %}
-                    <label class="badge badge-pill badge-info">{{ product_count }}</label>
-                    {% endif %}
-                </a>
-            </li>
-            <form class="form-inline my-2 my-lg-0 d-block d-sm-none" action="{% url 'search' %}" method="get">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control my-input-line" placeholder="" name="q">
-      <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
-    </div>
-  </div>
-  </form>
-    </ul>
+    <nav class="navbar navbar-expand-lg my-navbar navbar-light arimo-font">
+        <form class="form-inline my-2 my-lg-0 d-none d-sm-block" action="{% url 'search' %}" method="get">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control my-input-line" placeholder="" name="q">
+                    <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/AH.png' %}" class="my-logo d-none d-sm-block" alt="Andrea's Haberdashery">
+            <img src="{% static 'images/AndreaLogo.png' %}" class="my-logo d-block d-sm-none" alt="Andrea's Haberdashery">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav spacing-navbar-navs">
+                <li class="nav-item my-nav-item"><a href="#" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Home"><i class="fas fa-home"></i></a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item my-nav-item"><a href="{% url 'profile' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fas fa-user"></i></a></li>
+                <li class="nav-item my-nav-item"><a href="{% url 'logout' %}" class= "nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign Out"><i class="fas fa-sign-out-alt"></i></a></li>
+                {% else %}
+                <li class="nav-item my-nav-item"><a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li class="nav-item my-nav-item"><a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Create Account"><i class="fas fa-user-plus"></i></a></li>
+                {% endif %}
+                <li class="nav-item my-nav-item">
+                    <a href="{% url 'view_cart' %}" class="nav-link">
+                        <i class="fa fa-shopping-cart"></i>
+                        {% if product_count > 0 %}
+                        <label class="badge badge-pill badge-info">{{ product_count }}</label>
+                        {% endif %}
+                    </a>
+                </li>
+                <form class="form-inline my-2 my-lg-0 d-block d-sm-none" action="{% url 'search' %}" method="get">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control my-input-line" placeholder="" name="q">
+                            <button class="search-btn" type="search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </ul>
     
-  </div>
-</nav>
-
+        </div>
+    </nav>
+    {% if messages %}
+    <div class="alert alert-success">
+        <div class="messages">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
     
     <div class="container didact-gothic-font">
-    <h1>
-        {% block page_heading %}{% endblock %}
-    </h1>
-    {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
-    </div>
-    {% endif %} 
-    <div class="container arimo-font">
-        
-        {% block content %} {% endblock %}
-    </div>
+        <h1>{% block page_heading %}{% endblock %}</h1>
+        <div class="container arimo-font">
+            {% block content %} {% endblock %}
+        </div>
     </div>
     <footer class="didact-gothic-font">
         <div class="container text-center padding-footer-content">
@@ -101,35 +98,42 @@
                 </div>
                 <div class="col-4">
                     <p> 555-434-6979</p>
-
                     <p> 123 Alphabet RD.</p>
                     <p> Washington Court House, Ohio 43160</p>
                 </div>
                 <div class="col-4">
                     <ul class="list-inline footer-social-media">
                         <!--atrribute is given to make the social media symbol a link to the facebook page-->
-                        <li class="list-inline-item"><a href="https://www.facebook.com/andrea.callender.1" target="_blank"><i class="fab fa-facebook-f"></i>
-                    <span class="sr-only">Facebook</span></a></li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/andrea.callender.1" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
                         <!--atrribute is given to make the social media symbol a link to the twitter page-->
-                        <li class="list-inline-item "><a href="https://twitter.com/annie_luvnlime" target="_blank"><i class="fab fa-twitter"></i>
-                    <span class="sr-only">Twitter</span></a></li>
+                        <li class="list-inline-item ">
+                            <a href="https://twitter.com/annie_luvnlime" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
                         <!--atrribute is given to make the social media symbol a link to the youtube page-->
-                        <li class="list-inline-item "><a href="https://www.instagram.com/callenderandrea/?hl=en" target="_blank"><i class="fab fa-instagram"></i>
-                    <span class="sr-only">Instagram</span></a></li>
+                        <li class="list-inline-item ">
+                            <a href="https://www.instagram.com/callenderandrea/?hl=en" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
-
-    
-
-     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-{% block head_js %}
-{% endblock %}
+    {% block head_js %}
+    {% endblock %}
     
 </body>
 
