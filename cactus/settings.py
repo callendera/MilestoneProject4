@@ -89,7 +89,6 @@ WSGI_APPLICATION = 'cactus.wsgi.application'
 #     }
 # }
 DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
