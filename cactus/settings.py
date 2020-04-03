@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io',
-'localhost']
+'127.0.0.1']
 
 
 # Application definition
