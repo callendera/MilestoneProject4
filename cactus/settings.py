@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+if os.path.exists('env.py'):
+    import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io',
-'127.0.0.1']
+'localhost']
 
 
 # Application definition
