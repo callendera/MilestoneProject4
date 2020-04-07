@@ -3,4 +3,4 @@ python:
 - "2.7.17"
 install: "pip install -r requirements.txt"
 script:
-- SECRET_KEY="haberdashery" python test
+- SECRET_KEY="haberdashery" python manage.py test
