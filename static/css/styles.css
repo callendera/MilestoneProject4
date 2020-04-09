@@ -7,6 +7,10 @@ form {
 }
 
 
+.my-navbar-brand {
+    margin-right: 0;
+}
+
 .spacing-navbar-navs {
     width: 600px;
     justify-content: flex-end;
@@ -26,6 +30,8 @@ form {
 
 .my-navbar {
     background-color: white;
+    padding-left: 40px;
+    padding-right: 20px;
 }
 
 .my-nav-item {
