@@ -74,15 +74,15 @@ footer {
 
 .footer-social-media i {
     /*---blue color--*/
-    color: #03A9F4;
+    color: #e5abc6;
     font-size: 20px;
     padding: 15px;
 
 }
 
-.footer-social-media i:hover {
+.footer-social-media i:hover, .my-search-icon:hover, .nav-icon:hover {
     /*--- color of background: darker green ---*/
-    color: #2567ae;
+    color: #ed68a6;
     /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
     the color will gradually ease in and then ease out. ---*/
     transition: all 0.40s ease-in-out;
