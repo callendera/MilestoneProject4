@@ -80,7 +80,7 @@ footer {
 
 }
 
-.footer-social-media i:hover, .my-search-icon:hover, .nav-icon:hover {
+.footer-social-media i:hover,  .nav-icon:hover {
     /*--- color of background: darker green ---*/
     color: #ed68a6;
     /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
