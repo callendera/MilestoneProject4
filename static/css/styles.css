@@ -2,6 +2,18 @@ body {
     padding-top: 0;
 }
 
+.carousel-background {
+    background: url(../../static/images/pinkpot.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
 form {
     width: 50%;
 }
