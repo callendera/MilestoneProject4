@@ -3,7 +3,7 @@ body {
 }
 
 .carousel-background {
-    background: url(../../static/images/white2pot.jpg) no-repeat center center fixed;
+    background: url(../../static/images/potted.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -56,6 +56,12 @@ form {
 .my-logo {
     height: 75px;
     width: 100px;
+}
+
+.kristi-font {
+    font-family: 'Kristi', cursive;
+    font-size: 10rem;
+    color: #ed68a6;
 }
 
 .didact-gothic-font {
