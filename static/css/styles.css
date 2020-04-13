@@ -18,6 +18,13 @@ form {
     width: 50%;
 }
 
+
+
+.my-btn-center {
+    margin-right: 43px;
+}
+
+
 .my-search-icon {
   color: #7f7f7f;  
 }
@@ -60,7 +67,7 @@ form {
 
 .kristi-font {
     font-family: 'Kristi', cursive;
-    font-size: 10rem;
+    font-size: 5rem;
     color: #ed68a6;
 }
 
@@ -71,6 +78,21 @@ form {
 .arimo-font {
     font-family: 'Arimo', sans-serif;
 
+}
+
+.my-carousel-item {
+    margin-bottom: 100px;
+}
+
+.button-login-color {
+    color:#7f7f7f;
+    border-color: #7f7f7f;
+}
+
+.button-register-color {
+    color: #e5abc6;
+    background-color: #7f7f7f;
+    border-color: #7f7f7f;
 }
 
 footer {
@@ -168,7 +190,18 @@ margin-top: 30px;
 
 @media (min-width: 1400px) {
     .my-logo {
-    height: 200px;
-    width: 250px;
+        height: 200px;
+        width: 250px;
+    }
+    .register-col-center {
+        margin-right: 35px;
+        margin-top: 0;
+    }
+    .kristi-font {
+        font-size: 10rem;
+    }
+
+    .my-carousel-item {
+    margin-bottom: 100px;
     }
 }

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 <div class="callout ">
-<div class="container">
+<div class="container-fluid">
 <div id="carouselExampleCaptions" class="carousel slide carousel-background" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -10,19 +10,30 @@
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active my-carousel-item">
       <div class="carousel-text">
         <p class="kristi-font">Welcome</p>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <div class="row justify-content-end">
+            <div class="col-4 my-btn-center">
+                <a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
+                    <button type="button" class="btn btn-outline-dark button-login-color">Login</button>  
+                </a>
+            </div>
+            <div class="col-4 my-btn-center">
+                <a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
+                    <button type="button" class="btn btn-dark button-register-color">Register</button>  
+                </a>
+            </div>
+        </div>
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item my-carousel-item">
     <div class="carousel-text">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item my-carousel-item">
     <div class="carousel-text">
         <h5>Third slide label</h5>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
