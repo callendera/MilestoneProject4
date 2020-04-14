@@ -78,6 +78,12 @@ form {
     margin-bottom: 0;
 }
 
+.kristi-font-alert-message {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    
+}
+
 .didact-gothic-font {
     font-family: 'Didact Gothic', sans-serif;
 }
