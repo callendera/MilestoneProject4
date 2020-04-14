@@ -170,24 +170,39 @@ margin-top: 30px;
 /*--- adjustemnts for different screensizes, small-->big ---*/
 
 @media (min-width: 576px) {
-    
+    .my-navbar-brand {
+        margin-left: 0;
+    }
 }
 
 @media (min-width: 768px) {
-    
+    .my-navbar-brand {
+        margin-left: 0;
+    }
 
 }
 
 @media (min-width: 992px) {
-    
+    .my-navbar-brand {
+        margin-left: 0;
+    }
 
 }
 
 @media (min-width: 1200px) {
-   
+   .my-navbar-brand {
+        margin-left: 300px;
+    }
+    .my-logo {
+    height: 175px;
+    width: 200px;
+    }
 }
 
 @media (min-width: 1400px) {
+    .my-navbar-brand {
+        margin-left: 350px;
+    }
     .my-logo {
         height: 200px;
         width: 250px;
