@@ -14,12 +14,18 @@ body {
     height: 57vh;
 }
 
+.carousel-indicators li {
+    background-color: #e5abc6;
+}
+
 form {
     width: 50%;
 }
 
-
-
+.intro-font-size-space {
+    margin-top: 0;
+    font-size: 20px;
+}
 .my-btn-center {
     margin-right: 43px;
 }
@@ -69,6 +75,7 @@ form {
     font-family: 'Kristi', cursive;
     font-size: 5rem;
     color: #ed68a6;
+    margin-bottom: 0;
 }
 
 .didact-gothic-font {
@@ -92,6 +99,22 @@ form {
     color: #e5abc6;
     background-color: #7f7f7f;
     border-color: #7f7f7f;
+}
+
+.button-login-color:hover, .button-register-color:hover {
+    /*--- color of background: darker green ---*/
+    background-color: #ed68a6;
+    /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
+    the color will gradually ease in and then ease out. ---*/
+    transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -webkit-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    /*--- adjustments for each web browser ---*/
+}
+
+.carousel-icon-color {
+
 }
 
 footer {
@@ -173,35 +196,71 @@ margin-top: 30px;
     .my-navbar-brand {
         margin-left: 0;
     }
+    .kristi-font {
+        margin-bottom: 0;
+    }
+    .intro-font-size-space {
+        margin-top: 0;
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 768px) {
     .my-navbar-brand {
         margin-left: 0;
     }
-
+    .kristi-font {
+        margin-bottom: 0;
+    }
+    .my-carousel-item {
+        margin-bottom: 260px;
+    }
+    .intro-font-size-space {
+        font-size: 30px;
+    }
 }
 
 @media (min-width: 992px) {
     .my-navbar-brand {
         margin-left: 0;
     }
+    .my-carousel-item {
+    margin-bottom: 240px;
+    }
+    .intro-font-size-space {
+        font-size: 30px;
+    }
 
 }
 
 @media (min-width: 1200px) {
    .my-navbar-brand {
-        margin-left: 300px;
+        margin-right: 200px;
+        padding-right: 270px;
+    }
+    .intro-font-size-space {
+        font-size: 30px;
     }
     .my-logo {
-    height: 175px;
-    width: 200px;
+        height: 175px;
+        width: 200px;
+    }
+    .spacing-navbar-navs {
+        width: 0;
+    }
+
+    .kristi-font {
+        margin-top: 400px;
     }
 }
 
 @media (min-width: 1400px) {
     .my-navbar-brand {
-        margin-left: 350px;
+        margin-left: 0;
+        padding-right: 400px;
+    }
+    .intro-font-size-space {
+        font-size: 30px;
     }
     .my-logo {
         height: 200px;
@@ -213,8 +272,11 @@ margin-top: 30px;
     }
     .kristi-font {
         font-size: 10rem;
+        margin-top: 100px;
     }
     .my-carousel-item {
     margin-bottom: 100px;
     }
+    
 }
+

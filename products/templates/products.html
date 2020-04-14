@@ -3,7 +3,7 @@
 {% block content %}
 <div class="callout ">
 <div class="container-fluid">
-<div id="carouselExampleCaptions" class="carousel slide carousel-background" data-ride="carousel">
+<div id="carouselExampleCaptions" data-interval="100000" class="carousel slide carousel-background" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -11,15 +11,25 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active my-carousel-item">
+      {% if user.is_authenticated %}
       <div class="carousel-text">
         <div class="row">
+            <div class="col-12">
+                <p class="kristi-font">Hey There</p>
+            </div>
             <div class="col">
-                <p class="kristi-font">Welcome</p>
+                <h3 class="didact-gothic-font text-center intro-font-size-space">Get 20% off with code: lilsucca20</h3>
             </div>
         </div>
+      </div>
+        {% else %}
+      <div class="carousel-text">
         <div class="row">
-            <div class="col col-lg-6">
-                <p class="didact-gothic-font">Andrea's Haberdashery is here for the wayward travelor's soul. Each product is handcrafted and homegrown with a passion.</p>
+            <div class="col-12">
+                <p class="kristi-font">Welcome</p>
+            </div>
+            <div class="col">
+                <h3 class="didact-gothic-font text-center intro-font-size-space">Andrea's Haberdashery is here for the wayward travelor's soul. Each product is handcrafted and homegrown with a passion for the naturalistic lifestyle.</h3>
             </div>
         </div>
         <div class="row justify-content-end">
@@ -34,7 +44,9 @@
                 </a>
             </div>
         </div>
+      
       </div>
+        {% endif %}
     </div>
     <div class="carousel-item my-carousel-item">
     <div class="carousel-text">
@@ -50,7 +62,7 @@
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon carousel-icon-color" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
