@@ -79,9 +79,8 @@ form {
     font-family: 'Arimo', sans-serif;
 
 }
-
 .my-carousel-item {
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 .button-login-color {
@@ -200,7 +199,6 @@ margin-top: 30px;
     .kristi-font {
         font-size: 10rem;
     }
-
     .my-carousel-item {
     margin-bottom: 100px;
     }
