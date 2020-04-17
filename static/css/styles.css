@@ -1,9 +1,15 @@
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
 body {
     padding-top: 0;
 }
 
 .carousel-background {
-    background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+    background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -30,8 +36,19 @@ form {
     margin-right: 43px;
 }
 
+.card-image-sizing-spacing{
+    width: 150px;
+    height: 150px;
+    margin-left: 70px;
+}
+
 .my-card-spacing {
     margin-right: 100px;
+}
+
+.card-background {
+    border-color: transparent;
+    background-color: transparent;
 }
 
 .my-search-icon {
@@ -96,7 +113,7 @@ form {
 
 }
 .my-carousel-item {
-    margin-bottom: 200px;
+    margin-bottom: 250px;
 }
 
 .button-login-color {
@@ -113,6 +130,7 @@ form {
 .button-login-color:hover, .button-register-color:hover {
     /*--- color of background: darker green ---*/
     background-color: #ed68a6;
+    color: #ffffff;
     /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
     the color will gradually ease in and then ease out. ---*/
     transition: all 0.20s ease-in-out;
@@ -123,7 +141,15 @@ form {
 }
 
 .carousel-icon-color {
+    color: #7f7f7f;
+}
 
+.prev-arrow-spacing {
+    margin-right: 60px;
+}
+
+.next-arrow-spacing {
+    margin-left: 60px;
 }
 
 footer {
@@ -187,6 +213,8 @@ margin-top: 30px;
     padding: 20px;
 }
 
+
+
 .panel-body {
     padding: 10px;
     height: 100%;
@@ -202,6 +230,17 @@ margin-top: 30px;
 /*--- adjustemnts for different screensizes, small-->big ---*/
 
 @media (min-width: 576px) {
+    .carousel-background {
+        background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+    }
     .my-navbar-brand {
         margin-left: 0;
     }
@@ -212,6 +251,24 @@ margin-top: 30px;
         margin-top: 0;
         font-size: 25px;
     }
+    .my-card-spacing {
+        margin-right: 0px;
+    }
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    .my-second-carousel-item {
+        margin-bottom: 200px;
+    }
+    .prev-arrow-spacing {
+        margin-right: 70px;
+    }
+    .next-arrow-spacing {
+        margin-left: 70px;
+    }
+    .my-carousel-item {
+        margin-bottom: 250px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -221,11 +278,29 @@ margin-top: 30px;
     .kristi-font {
         margin-bottom: 0;
     }
+    .my-second-carousel-item {
+        margin-bottom: 160px;
+    }
+    .my-card-spacing {
+        margin-right: 110px;
+    }
     .my-carousel-item {
         margin-bottom: 260px;
     }
     .intro-font-size-space {
         font-size: 30px;
+    }
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    .prev-arrow-spacing {
+        margin-right: 100px;
+    }
+    .next-arrow-spacing {
+        margin-left: 100px;
+    }
+    .carousel-background {
+        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
     }
 }
 
@@ -239,6 +314,21 @@ margin-top: 30px;
     .intro-font-size-space {
         font-size: 30px;
     }
+    .my-card-spacing {
+        margin-right: 115px;
+    }
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    .prev-arrow-spacing {
+        margin-right: 40px;
+    }
+    .next-arrow-spacing {
+        margin-left: 40px;
+    }
+    .carousel-background {
+        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+    }
 
 }
 
@@ -250,6 +340,9 @@ margin-top: 30px;
     .intro-font-size-space {
         font-size: 30px;
     }
+    .my-carousel-item {
+        margin-bottom: 200px;
+    }
     .my-logo {
         height: 175px;
         width: 200px;
@@ -257,9 +350,17 @@ margin-top: 30px;
     .spacing-navbar-navs {
         width: 0;
     }
-
+    .my-card-spacing {
+        margin-right: 110px;
+    }
     .kristi-font {
         margin-top: 400px;
+    }
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    .carousel-background {
+        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
     }
 }
 
@@ -285,6 +386,32 @@ margin-top: 30px;
     }
     .my-carousel-item {
     margin-bottom: 100px;
+    }
+    .my-card-spacing {
+        margin-right: 100px;
+    }
+    .prev-arrow-spacing {
+        margin-right: 200px;
+    }
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    .next-arrow-spacing {
+        margin-left: 200px;
+    }
+    .carousel-background {
+        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 57vh;
+    }
+    .container-fluid {
+        padding-left: 15px;
     }
     
 }
