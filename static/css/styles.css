@@ -36,10 +36,21 @@ form {
     margin-right: 43px;
 }
 
+.box-flower-sizing-spacing {
+    width: 100px;
+    height: 100px;
+    margin-left: 95px;
+}
+
 .card-image-sizing-spacing{
     width: 150px;
     height: 150px;
     margin-left: 70px;
+}
+
+.box-flower-card-spacing {
+    margin-right: 100px;
+    margin-bottom: 200px;
 }
 
 .my-card-spacing {
@@ -90,7 +101,18 @@ form {
     height: 75px;
     width: 100px;
 }
-
+.kristi-font-unset-size {
+    font-family: 'Kristi', cursive;
+    color: #ed68a6;
+    margin-bottom: 40px;
+}
+.kristi-font-shipping {
+    font-family: 'Kristi', cursive;
+    font-size: 3rem;
+    color: #ed68a6;
+    margin-top: 170px;
+    margin-bottom: 20px;
+}
 .kristi-font {
     font-family: 'Kristi', cursive;
     font-size: 5rem;
@@ -301,6 +323,14 @@ margin-top: 30px;
     }
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 57vh;
     }
 }
 
@@ -401,9 +431,9 @@ margin-top: 30px;
     }
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
         background-size: contain;
         display: flex;
         align-items: center;

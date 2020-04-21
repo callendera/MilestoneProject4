@@ -1,121 +1,138 @@
 {% extends 'base.html'%}
 {% load staticfiles %}
 {% block content %}
-<div class="callout ">
-<div class="container-fluid my-container-padding">
-<div id="carouselExampleCaptions" data-interval="100000" class="carousel slide carousel-background" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active my-carousel-item">
-      {% if user.is_authenticated %}
-      <div class="carousel-text">
-        <div class="row">
-            <div class="col-12">
-                <p class="kristi-font">Hey There</p>
-            </div>
-            <div class="col">
-                <h3 class="didact-gothic-font text-center intro-font-size-space">Get 20% off with code: lilsucca20</h3>
-            </div>
-        </div>
-      </div>
-        {% else %}
-      <div class="carousel-text">
-        <div class="row">
-            <div class="col-12">
-                <p class="kristi-font">Welcome</p>
-            </div>   
-            <div class="col">
-                <h3 class="didact-gothic-font text-center intro-font-size-space">Andrea's Haberdashery is here for the wayward travelor's soul. Each product is handcrafted and homegrown with a passion for the naturalistic lifestyle.</h3>
-            </div>
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-4 my-btn-center">
-                <a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
-                    <button type="button" class="btn btn-outline-dark button-login-color arimo-font">Login</button>  
-                </a>
-            </div>
-            <div class="col-4 my-btn-center">
-                <a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
-                    <button type="button" class="btn btn-dark button-register-color arimo-font">Register</button>  
-                </a>
-            </div>
-        </div>
-      
-      </div>
-        {% endif %}
-    </div>
-    <div class="carousel-item my-second-carousel-item text-center">
-        <div class="carousel-text d-sm-none d-md-block">
-            <div class="row justify-content-end">
-                <div class="col-4 my-card-spacing">
-                    <div class="card card-background" style="width: 18rem;">
-                        <img src="{% static 'images/handplant.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
-                        <div class="card-body">
-                            <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
-                            <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
-                            <a href="#" class="btn button-register-color arimo-font">Shop Succulents</a>
+<div class="callout">
+    <div class="container-fluid my-container-padding">
+        <div id="carouselExampleCaptions" data-interval="100000" class="carousel slide carousel-background" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active my-carousel-item">
+                {% if user.is_authenticated %}
+                    <div class="carousel-text">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="kristi-font">Hey There</p>
+                            </div>
+                            <div class="col">
+                                <h3 class="didact-gothic-font text-center intro-font-size-space">Get 20% off with code: lilsucca20</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="carousel-text">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="kristi-font">Welcome</p>
+                            </div>   
+                            <div class="col">
+                                <h3 class="didact-gothic-font text-center intro-font-size-space d-none d-sm-block">Andrea's Haberdashery is here for the wayward travelor's soul. Each product is handcrafted and homegrown with a passion for the naturalistic lifestyle.</h3>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="didact-gothic-font text-center intro-font-size-space d-block d-sm-none">to Andrea's Haberdashery</h3>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-4 my-btn-center">
+                                <a href="{% url 'login' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
+                                    <button type="button" class="btn btn-outline-dark button-login-color arimo-font">Login</button>  
+                                </a>
+                            </div>
+                            <div class="col-4 my-btn-center">
+                                <a href="{% url 'registration' %}" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Sign In">
+                                    <button type="button" class="btn btn-dark button-register-color arimo-font">Register</button>  
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="carousel-item my-second-carousel-item text-center">
+                    <div class="carousel-text d-sm-none d-md-block d-none">
+                        <div class="row justify-content-end">
+                            <div class="col-4 my-card-spacing">
+                                <div class="card card-background" style="width: 18rem;">
+                                    <img src="{% static 'images/handplant.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
+                                    <div class="card-body">
+                                        <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
+                                        <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
+                                        <a href="#" class="btn button-register-color arimo-font">Shop Succulents</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 my-card-spacing">
+                                <div class="card card-background" style="width: 18rem;">
+                                    <img src="{% static 'images/herbalhand.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
+                                    <div class="card-body">
+                                        <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Herbal Teas</h4>
+                                        <p class="card-text arimo-font d-sm-none d-md-block">Our all natural and holistic teas have been handcrafted from homegrown herbs and spices for a natural healing experience. </p>
+                                        <a href="#" class="btn button-register-color arimo-font">Shop Herbal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-text d-none d-sm-block d-md-none d-none d-sm-block">
+                        <div class="row justify-content-start">
+                            <div class="col-4 my-card-spacing">
+                                <div class="card card-background" style="width: 18rem;">
+                                    <img src="{% static 'images/handplant.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
+                                    <div class="card-body">
+                                        <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
+                                        <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
+                                        <a href="#" class="btn button-register-color arimo-font">Shop Succulents</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 my-card-spacing">
+                                <div class="card card-background" style="width: 18rem;">
+                                    <img src="{% static 'images/herbalhand.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
+                                    <div class="card-body">
+                                        <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Herbal Teas</h4>
+                                        <p class="card-text arimo-font d-sm-none d-md-block">Our all natural and holistic teas have been handcrafted from homegrown herbs and spices for a natural healing experience. </p>
+                                        <a href="#" class="btn button-register-color arimo-font">Shop Herbal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-text d-none d-md-none d-block d-sm-none d-lg-none">
+                        <div class="row justify-content-start">
+                            <div class="col-12 box-flower-card-spacing">
+                                <div class="card card-background" style="width: 18rem;">
+                                    <img src="{% static 'images/flowerbox.jpg' %}" class="card-img-top box-flower-sizing-spacing" alt="Shop Succulents">
+                                    <div class="card-body">
+                                    <a href="#" class="btn button-register-color arimo-font">Shop Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 my-card-spacing">
-                    <div class="card card-background" style="width: 18rem;">
-                        <img src="{% static 'images/herbalhand.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
-                        <div class="card-body">
-                            <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Herbal Teas</h4>
-                            <p class="card-text arimo-font d-sm-none d-md-block">Our all natural and holistic teas have been handcrafted from homegrown herbs and spices for a natural healing experience. </p>
-                            <a href="#" class="btn button-register-color arimo-font">Shop Herbal</a>
-                        </div>
-                    </div>
+            </div>
+            <div class="carousel-item my-carousel-item">
+                <div class="carousel-text d-none d-sm-block">
+                    <p class="kristi-font-shipping">Free Shipping</p>
+                    <h4>Now through August 2020, Free Shipping anywhere!</h4>
+                </div>
+                <div class="carousel-text d-block d-sm-none">
+                    <h1 class="kristi-font-unset-size">Free Shipping</h1>
+                    <h5>Now through August 2020, Free Shipping anywhere!</h5>
                 </div>
             </div>
         </div>
-        <div class="carousel-text d-none d-sm-block d-md-none">
-            <div class="row justify-content-start">
-                <div class="col-4 my-card-spacing">
-                    <div class="card card-background" style="width: 18rem;">
-                        <img src="{% static 'images/handplant.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
-                        <div class="card-body">
-                            <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
-                            <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
-                            <a href="#" class="btn button-register-color arimo-font">Shop Succulents</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 my-card-spacing">
-                    <div class="card card-background" style="width: 18rem;">
-                        <img src="{% static 'images/herbalhand.jpg' %}" class="card-img-top card-image-sizing-spacing" alt="Shop Succulents">
-                        <div class="card-body">
-                            <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Herbal Teas</h4>
-                            <p class="card-text arimo-font d-sm-none d-md-block">Our all natural and holistic teas have been handcrafted from homegrown herbs and spices for a natural healing experience. </p>
-                            <a href="#" class="btn button-register-color arimo-font">Shop Herbal</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item my-carousel-item">
-    <div class="carousel-text">
-        <h5></h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="prev-arrow-spacing" aria-hidden="true"><i class="carousel-icon-color fas fa-chevron-left"></i></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="next-arrow-spacing" aria-hidden="true"><i class="carousel-icon-color fas fa-chevron-right"></i></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="prev-arrow-spacing" aria-hidden="true"><i class="carousel-icon-color fas fa-chevron-left"></i></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="next-arrow-spacing" aria-hidden="true"><i class="carousel-icon-color fas fa-chevron-right"></i></span>
+            <span class="sr-only">Next</span>
+        </a>
 
-</div>
+    </div>
 </div>
 
 <div class="row row flex">
