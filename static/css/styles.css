@@ -17,7 +17,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 57vh;
+    height: 89vh;
 }
 
 .carousel-indicators li {
@@ -139,8 +139,8 @@ form {
 }
 
 .button-login-color {
-    color:#7f7f7f;
-    border-color: #7f7f7f;
+    color:#ed68a6;
+    border-color: #ed68a6;
 }
 
 .button-register-color {
@@ -261,7 +261,7 @@ margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 50vh;
+        height: 77vh;
     }
     .my-navbar-brand {
         margin-left: 0;
@@ -272,6 +272,9 @@ margin-top: 30px;
     .intro-font-size-space {
         margin-top: 0;
         font-size: 25px;
+    }
+    .kristi-font-shipping {
+        margin-top: 0px;
     }
     .my-card-spacing {
         margin-right: 0px;
@@ -321,6 +324,9 @@ margin-top: 30px;
     .next-arrow-spacing {
         margin-left: 100px;
     }
+    .kristi-font-shipping {
+        margin-top: 0px;
+    }
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
          -webkit-background-size: cover;
@@ -330,7 +336,7 @@ margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 57vh;
+        height: 85vh;
     }
 }
 
@@ -340,6 +346,9 @@ margin-top: 30px;
     }
     .my-carousel-item {
     margin-bottom: 240px;
+    }
+    .kristi-font-shipping {
+        margin-top: 0px;
     }
     .intro-font-size-space {
         font-size: 30px;
@@ -358,6 +367,7 @@ margin-top: 30px;
     }
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+        height: 80vh;
     }
 
 }
@@ -384,13 +394,18 @@ margin-top: 30px;
         margin-right: 110px;
     }
     .kristi-font {
-        margin-top: 400px;
+        margin-bottom: 0;
+        margin-top: 0;
     }
     .my-btn-center {
         margin-right: 43px;
     }
     .carousel-background {
-        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+        background: url(../../static/images/girl.jpg) no-repeat center center fixed;
+        height: 90vh;
+    }
+    .my-second-carousel-item {
+        margin-bottom: 90px;
     }
 }
 
@@ -415,7 +430,12 @@ margin-top: 30px;
         margin-top: 100px;
     }
     .my-carousel-item {
-    margin-bottom: 100px;
+        margin-bottom: 0px;
+        margin-top: 200px;
+    }
+    .my-second-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 100px;
     }
     .my-card-spacing {
         margin-right: 100px;
@@ -438,7 +458,7 @@ margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 57vh;
+        height: 100vh;
     }
     .container-fluid {
         padding-left: 15px;
