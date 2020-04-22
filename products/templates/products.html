@@ -10,20 +10,20 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active my-carousel-item">
+                <div class="carousel-item active">
                 {% if user.is_authenticated %}
-                    <div class="carousel-text">
+                    <div class="carousel-text my-loggedin-carousel-item">
                         <div class="row">
                             <div class="col-12">
                                 <p class="kristi-font">Hey There</p>
                             </div>
                             <div class="col">
-                                <h3 class="didact-gothic-font text-center intro-font-size-space">Get 20% off with code: lilsucca20</h3>
+                                <h3 class="didact-gothic-font text-center loggedin-intro-font-size-space">Get 20% off with code: lilsucca20</h3>
                             </div>
                         </div>
                     </div>
                 {% else %}
-                    <div class="carousel-text">
+                    <div class="carousel-text my-carousel-item">
                         <div class="row">
                             <div class="col-12">
                                 <p class="kristi-font">Welcome</p>
@@ -143,7 +143,7 @@
             </div>
             <h3>{{ product.name }}</h3>
             <p class="product-description">{{ product.description }} </p>
-            <p> {{ product.price }}</p>
+            <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>
             <form method="POST" id="quantity" action="{% url 'add_to_cart' product.id %}">
                 {% csrf_token %}
                 <div class="input-group">

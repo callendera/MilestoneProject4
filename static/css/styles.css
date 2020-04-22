@@ -8,8 +8,30 @@ body {
     padding-top: 0;
 }
 
-.login-spacing-sizing {
-    margin-top: 40px;
+.heading-font {
+    font-family: 'Kristi', cursive;
+    font-size: 5rem;
+    color: #ed68a6;
+    margin-bottom: 0;
+    margin-top: 100px;
+}
+
+.product-image-in-cart {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.my-block-divider {
+    height: 3px;
+    /*--- no outline on divider ---*/
+    border: 0;
+    /*--- color of block divider, light pink and slightly transparent ---*/
+    background-color: #e5abc6;
 }
 
 .carousel-background {
@@ -138,8 +160,14 @@ form {
     font-family: 'Arimo', sans-serif;
 
 }
-.my-carousel-item {
-    margin-bottom: 250px;
+.my-second-carousel-item{
+    margin-bottom: 200px;
+}
+.my-carousel-item{
+    margin-bottom: 450px;
+}
+.my-loggedin-carousel-item {
+    margin-bottom: 450px;
 }
 
 .button-login-color {
@@ -287,7 +315,7 @@ margin-top: 30px;
         margin-right: 43px;
     }
     .my-second-carousel-item {
-        margin-bottom: 200px;
+        margin-bottom: 380px;
     }
     .prev-arrow-spacing {
         margin-right: 70px;
@@ -295,8 +323,11 @@ margin-top: 30px;
     .next-arrow-spacing {
         margin-left: 70px;
     }
-    .my-carousel-item {
-        margin-bottom: 250px;
+    .my-carousel-item{
+        margin-bottom: 540px;
+    }
+    .my-loggedin-carousel-item {
+        margin-bottom: 350px;
     }
 }
 
@@ -308,13 +339,18 @@ margin-top: 30px;
         margin-bottom: 0;
     }
     .my-second-carousel-item {
-        margin-bottom: 160px;
+        margin-bottom: 300px;
     }
     .my-card-spacing {
         margin-right: 110px;
     }
-    .my-carousel-item {
-        margin-bottom: 260px;
+    .my-carousel-item{
+        margin-bottom: 0px;
+        margin-top: 150px;
+    }
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 120px;
     }
     .intro-font-size-space {
         font-size: 30px;
@@ -348,8 +384,16 @@ margin-top: 30px;
     .my-navbar-brand {
         margin-left: 0;
     }
-    .my-carousel-item {
-    margin-bottom: 240px;
+    .my-second-carousel-item {
+        margin-bottom: 250px;
+    }
+    .my-carousel-item{
+        margin-bottom: 0px;
+        margin-top: 250px;
+    }
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 250px;
     }
     .kristi-font-shipping {
         margin-top: 0px;
@@ -381,11 +425,19 @@ margin-top: 30px;
         margin-right: 200px;
         padding-right: 270px;
     }
+    .heading-font {
+        margin-top: 200px;
+    }
     .intro-font-size-space {
         font-size: 30px;
     }
     .my-carousel-item {
-        margin-bottom: 200px;
+        margin-bottom: 0px;
+        margin-top: 20px;
+    }
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 150px;
     }
     .my-logo {
         height: 175px;
@@ -406,7 +458,7 @@ margin-top: 30px;
     }
     .carousel-background {
         background: url(../../static/images/girl.jpg) no-repeat center center fixed;
-        height: 90vh;
+        height: 70vh;
     }
     .my-second-carousel-item {
         margin-bottom: 90px;
@@ -421,6 +473,13 @@ margin-top: 30px;
     .intro-font-size-space {
         font-size: 30px;
     }
+    .heading-font {
+        margin-top: 240px;
+    }
+    .loggedin-intro-font-size-space {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
     .my-logo {
         height: 200px;
         width: 250px;
@@ -431,11 +490,12 @@ margin-top: 30px;
     }
     .kristi-font {
         font-size: 10rem;
-        margin-top: 100px;
     }
     .my-carousel-item {
         margin-bottom: 0px;
-        margin-top: 200px;
+    }
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
     }
     .my-second-carousel-item {
         margin-bottom: 0px;
@@ -462,10 +522,19 @@ margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 60vh;
     }
     .container-fluid {
         padding-left: 15px;
+    }
+    .product-image-in-cart {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        margin-top: 100px;
     }
     
 }

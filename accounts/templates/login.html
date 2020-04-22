@@ -4,9 +4,9 @@
 {% block page_heading %}Login{% endblock %} 
 
 {% block content %}
-<form method="POST">
+<form class="login-spacing-sizing" method="POST">
     {% csrf_token %} {{ login_form | as_bootstrap}}
-    <button type="submit" class="btn btn-default">Login</button>
+    <button type="submit" class="btn button-login-color">Login</button>
 </form>
 <p>
     <a href="{% url 'password_reset' %}">Reset Password</a>
