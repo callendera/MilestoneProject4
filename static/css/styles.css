@@ -8,6 +8,10 @@ body {
     padding-top: 0;
 }
 
+.login-spacing-sizing {
+    margin-top: 40px;
+}
+
 .carousel-background {
     background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
     -webkit-background-size: cover;
