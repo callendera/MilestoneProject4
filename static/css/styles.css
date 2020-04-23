@@ -8,6 +8,26 @@ body {
     padding-top: 0;
 }
 
+.check-out-div-items-padding {
+    padding: 5px;
+}
+
+.check-out-div {
+    padding-bottom: 100px;
+}
+
+.my-badge {
+    background-color: #ed68a6;
+    color: #ffffff;
+    font-family: 'Kristi', cursive;
+}
+
+.adjust-item-button {
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+
 .heading-font {
     font-family: 'Kristi', cursive;
     font-size: 5rem;
@@ -294,6 +314,11 @@ margin-top: 30px;
         align-items: center;
         justify-content: center;
         height: 77vh;
+    }
+    .adjust-item-button {
+        margin-bottom: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     .my-navbar-brand {
         margin-left: 0;
