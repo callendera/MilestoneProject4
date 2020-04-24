@@ -19,7 +19,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
         <div class="col-sm">
             <div class="caption d-sm-none d-md-block">
                 <h3>{{ item.product.name }}</h3>
-                <p class="product-description">{{ item.product.description }}</p>
+                <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
             </div>
             <div class="caption d-none d-sm-block d-md-none">
                 <h5>{{ item.product.name }}</h5>
@@ -36,7 +36,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
                         <input name="quantity" type="number" min="0" max="999" class="form-control" placeholder="{{item.quantity}}" required>
                     </div>
                 </div>
-                <button type="submit" class="btn adjust-item-button button-login-color arimo-font"><i class="fas fa-plus"></i></button>
+                <button type="submit" class="btn adjust-item-button button-login-color arimo-font"><i class="fas fa-edit"></i>  </button>
                 <a href="{% url 'remove_from_cart' item.id %}" class="button-login-color arimo-font">Remove</a>
             </form>
     
@@ -48,7 +48,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
 <div class="row justify-content-end check-out-div">
     <p class="check-out-div-items-padding">Total </p>
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
+    <a href="{% url 'checkout' %}" class="btn button-login-color" role="button">Checkout</a>
 </div>
 
 {% endblock %} 

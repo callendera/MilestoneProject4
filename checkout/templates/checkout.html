@@ -23,7 +23,7 @@
         <div class="col-sm">
             <div class="caption d-sm-none d-md-block">
                 <h3>{{ item.product.name }}</h3>
-                <p class="product-description">{{ item.product.description }}</p>
+                <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
             </div>
             <div class="caption d-none d-sm-block d-md-none">
                 <h5>{{ item.product.name }}</h5>
@@ -36,25 +36,33 @@
     </div> 
     <hr class="my-block-divider">
     {% endfor %}
+    <a href="{% url 'view_cart' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Cart</a>
 <div class="row justify-content-end">
     <p class="check-out-div-items-padding">Total:</p>
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
 </div>
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Personal Info</legend>
+        <hr class="my-checkout-block-divider">
     <div id="credit-card-errors" style="display: none;">
         <div id="alert-message block-message error" id="stripe-error-message"></div>
     </div>
-    <div class="form-group col-md-6">
+    <div class="row">
+    <div class="form-group col-sm">
         {{ order_form | as_bootstrap }}
     </div>
+    </div>
     <legend>Payment Details</legend>
-    <div class="form-group col-md-6">
+    
+    <hr class="my-checkout-block-divider">
+    <div class="row">
+    <div class="form-group col-sm">
         {{ payment_form | as_bootstrap }}
+    </div>
     </div>
     {% csrf_token %}
     <div class="form-group col-md-12">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        <input class=" btn button-login-color" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
     </div>
 </form>
 {% endblock %}

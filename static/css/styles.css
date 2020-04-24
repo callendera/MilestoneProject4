@@ -25,6 +25,7 @@ body {
 .adjust-item-button {
     margin-bottom: 15px;
     margin-left: 5px;
+    border-color: transparent !important;
 }
 
 
