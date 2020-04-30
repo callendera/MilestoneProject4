@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from accounts.models import Customer
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
 
@@ -64,6 +65,23 @@ def registration(request):
 
 
 def user_profile(request):
-    """The user's profile page"""
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+
+    customer = Customer.objects.filter(user=request.user).first()
+    if request.method == "POST":
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            customer = form.save(commit=False)
+            customer.user = request.user
+            customer.save()
+            messages.success(request, "You have updated your profile")
+    else:
+        form = CustomerForm(instance=customer)
+    has_order = False
+    if customer:
+        has_order = Order.objects.filter(customer=customer).exists()
+
+    return render(
+        request,
+        "profile.html",
+        {"user": request.user, "form": form, "has_order": has_order},
+    )

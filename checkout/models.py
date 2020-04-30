@@ -1,7 +1,10 @@
 from django.db import models
 from products.models import Product
+from django.contrib.auth.models import User
+
 
 class Order(models.Model):
+    user = models.ForeignKey(User, default=None)    
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -9,7 +12,6 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=40, blank=False)
     street_address2 = models.CharField(max_length=40, blank=False)
-    county = models.CharField(max_length=40, blank=False)
     date = models.DateField()
 
     def __str__(self):
