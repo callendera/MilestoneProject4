@@ -75,6 +75,10 @@ form {
     width: 50%;
 }
 
+.width-removal {
+    width: 100% !important;
+}
+
 .intro-font-size-space {
     margin-top: 0;
     font-size: 20px;

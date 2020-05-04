@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from accounts.forms import CustomerForm
 from accounts.models import Customer
 from django.contrib.auth.models import User
 from .utils import create_order_history
@@ -49,8 +48,7 @@ def checkout(request):
                     card=payment_form.cleaned_data['stripe_id']
                 )
             except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
-            
+                messages.error(request, "Your card was declined!")            
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
@@ -63,8 +61,7 @@ def checkout(request):
             messages.error(request, "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
-        order_form = OrderForm()
-    
+        order_form = OrderForm()   
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
 
 def order_history(request):

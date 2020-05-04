@@ -59,7 +59,10 @@
                                     <div class="card-body">
                                         <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
                                         <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
-                                        <a href="#" class="btn button-register-color arimo-font">Shop Succulents</a>
+                                        <form class="width-removal" action="{% url 'search' %}" method="get">
+                                            <input type="text" class="form-control d-none" value="Succulents" name="q">
+                                            <button class="btn button-register-color arimo-font" type="search">Shop Succulents</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +72,10 @@
                                     <div class="card-body">
                                         <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Herbal Teas</h4>
                                         <p class="card-text arimo-font d-sm-none d-md-block">Our all natural and holistic teas have been handcrafted from homegrown herbs and spices for a natural healing experience. </p>
-                                        <a href="#" class="btn button-register-color arimo-font">Shop Herbal</a>
+                                        <form class="width-removal" action="{% url 'search' %}" method="get">
+                                            <input type="text" class="form-control d-none" value="Succulents" name="q">
+                                            <button class="btn button-register-color arimo-font" type="search">Shop Herbal</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
