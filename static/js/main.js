@@ -4,3 +4,4 @@ $(document).ready(function () {
         interval: 100000
     }),
 });
+

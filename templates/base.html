@@ -35,7 +35,7 @@
                 </div>
             </div>
         </form>
-        <a class="navbar-brand my-navbar-brand" href="#">
+        <a class="navbar-brand my-navbar-brand" href="products.html">
             <img src="{% static 'images/AHSH-1.png' %}" class="my-logo d-none d-xl-block" alt="Andrea's Haberdashery">
             <img src="{% static 'images/AndreaLogo.png' %}" class="my-logo d-xl-none" alt="Andrea's Haberdashery">
         </a>
@@ -131,6 +131,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% if scroll_to_search_results %}
+    <script type="text/javascript">
+        $(document).ready(
+            function scrollWin() {
+                window.scrollBy(0, 500);
+        });
+    </script>
+    {% endif %}
+
     {% block head_js %}
     {% endblock %}
     
