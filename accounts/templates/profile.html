@@ -23,14 +23,17 @@
         <h3> Order History <i class="fas fa-shopping-bag"></i> </h3>
             {% if orders %}
                 {% for order in orders %}
-                    <div class="row">
-                        <article class="col-xs-9 col-sm-5 article-background profile-left-margin">
-                            <h4>Order #: {{ order.id }}</h4>
-                            <p class="bold-text">Date: {{ order.date }}</p>
-                            <a href="{% url 'order-info' order.pk %}" class="btn btn-sm btn-info" style="margin-bottom: 10px;">Read more</a>
-                        </article>
-                    </div>
+                    <span>
+                        <h4></h4>
+                        <p class="bold-text">Date: {{ order.date }}</p>
+                        <a href="{% url 'order-info' order.pk %}" class="btn button-login-color">Read more</a>
+                    </span>
                 {% endfor %}
+            {% else %}
+                <span>
+                        <p>You have no Order History</p>
+                        <a href="{% url 'index' %}" class="btn button-login-color">Shop</a>
+                    </span>
             {% endif %}
     </div>
 </div>

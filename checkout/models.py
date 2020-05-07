@@ -19,8 +19,8 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, default=1)
-    product = models.ForeignKey(Product, default=1)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=False)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=False)
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):

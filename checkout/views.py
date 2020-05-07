@@ -33,10 +33,10 @@ def checkout(request):
                 product = get_object_or_404(Product, pk=id)
                 total += quantity * product.price
                 order_line_item = OrderLineItem(
-                    order=order,
-                    product=product,
-                    quantity=quantity
-                )
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                    )
                 order_line_item.save()
             
             try:
