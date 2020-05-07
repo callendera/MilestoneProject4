@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from accounts.models import Customer
 from accounts.forms import UserLoginForm, UserRegistrationForm, CustomerForm
-from checkout.models import Order
 
 
 def index(request):
@@ -77,12 +75,9 @@ def user_profile(request):
             messages.success(request, "You have updated your profile")
     else:
         form = CustomerForm(instance=customer)
-    has_order = False
-    if customer:
-        has_order = Order.objects.filter(customer=customer).exists()
 
     return render(
         request,
         "profile.html",
-        {"user": request.user, "form": form, "has_order": has_order},
+        {"user": request.user, "form": form},
     )

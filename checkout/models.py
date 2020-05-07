@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True)    
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -19,6 +18,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True)    
     order = models.ForeignKey(Order, default=1)
     product = models.ForeignKey(Product, default=1)
     quantity = models.IntegerField(blank=False)
