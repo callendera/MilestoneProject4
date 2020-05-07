@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from accounts.models import Customer
-from accounts.forms import UserLoginForm, UserRegistrationForm, CustomerForm
+from accounts.forms import UserLoginForm, UserRegistrationForm
 
 
 def index(request):
@@ -61,23 +60,3 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form})
-
-
-def user_profile(request):
-
-    customer = Customer.objects.filter(user=request.user).first()
-    if request.method == "POST":
-        form = CustomerForm(request.POST, instance=customer)
-        if form.is_valid():
-            customer = form.save(commit=False)
-            customer.user = request.user
-            customer.save()
-            messages.success(request, "You have updated your profile")
-    else:
-        form = CustomerForm(instance=customer)
-
-    return render(
-        request,
-        "profile.html",
-        {"user": request.user, "form": form},
-    )
