@@ -37,6 +37,10 @@ def login(request):
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
 
+@login_required
+def profile(request):
+    """A view that displays the profile page of a logged in user"""
+    return render(request, 'profile.html')
 
 def registration(request):
     """Render the registration page"""
