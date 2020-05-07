@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from checkout.models import Order, OrderLineItem
+from django.utils import timezone
 
 
 def index(request):
@@ -64,3 +66,26 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form})
+
+@login_required
+def order_history(request):
+    """
+    Retrieves the order history of the user.
+    """
+    if request.user:
+        order_list = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+
+        page = request.GET.get('page')
+        return render(request, "order_list.html", {'orders': orders})
+
+
+@login_required
+def order_info(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    order.save()
+    order_total = 0
+    line_item = OrderLineItem.objects.filter(order=order)
+    for item in line_item:
+        order_total += item.total
+
+    return render(request, "order_info.html", {'order': order, 'line_item': line_item, 'order_total': order_total})

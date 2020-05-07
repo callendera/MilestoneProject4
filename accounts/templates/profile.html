@@ -21,10 +21,16 @@
     </div>
     <div class="col-6">
         <h3> Order History <i class="fas fa-shopping-bag"></i> </h3>
-            {% if has_order %}
-            <a class="button-login-color" href= "{% url 'order_history' %}">Check out your Order History Here</a>
-            {% else %}
-            <a class="button-login-color" href= "{% url 'index' %}">You Have No Order History, Go Shop! </a>
+            {% if orders %}
+                {% for order in orders %}
+                    <div class="row">
+                        <article class="col-xs-9 col-sm-5 article-background profile-left-margin">
+                            <h4>Order #: {{ order.id }}</h4>
+                            <p class="bold-text">Date: {{ order.date }}</p>
+                            <a href="{% url 'order-info' order.pk %}" class="btn btn-sm btn-info" style="margin-bottom: 10px;">Read more</a>
+                        </article>
+                    </div>
+                {% endfor %}
             {% endif %}
     </div>
 </div>

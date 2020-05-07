@@ -12,13 +12,13 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=40, blank=False)
     street_address2 = models.CharField(max_length=40, blank=False)
     date = models.DateField()
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
 
 
 class OrderLineItem(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True)    
     order = models.ForeignKey(Order, default=1)
     product = models.ForeignKey(Product, default=1)
     quantity = models.IntegerField(blank=False)
