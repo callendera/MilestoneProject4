@@ -1,9 +1,10 @@
-{% extends "profile.html" %}
+{% extends "base.html" %}
 {% block page_title %}Order Details{% endblock %}
-
-{% block profile_content %}
+{% block page_heading %}{{ user }}'s Order Info{% endblock %}
+{% block content %}
+  <section>
     <span>
-      <h1>Order Info</h1>
+      
 
       <h4 class="top-buffer">Order date:</h4>
       <p class="bold-text">{{ order.date }}</p>
@@ -12,8 +13,9 @@
 
       {% for item in line_item %}
         <div class="row">
-          <p class="col-sm-2 col-md-3 bold-text">{{ item.product }}</p>
-          <p class="col-sm-1 col-md-1 bold-text">{{ item.quantity }}</p>
+            <p class="col-sm-2 col-md-3 bold-text">{{ item.product }}</p>
+            <p class="col-sm-1 col-md-1 bold-text">{{ item.quantity }}</p>
+            <p class="col-sm-1 col-md-1 bold-text">{{ order_total }}</p>
         </div>
       {% endfor %}
     </span>

@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from checkout.models import Order, OrderLineItem
 from django.utils import timezone
+from products.models import Product
 
 
 def index(request):
@@ -42,7 +43,10 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    if request.user:
+        orders = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+
+        return render(request, "profile.html", {'orders': orders})
 
 def registration(request):
     """Render the registration page"""
@@ -73,10 +77,9 @@ def order_history(request):
     Retrieves the order history of the user.
     """
     if request.user:
-        order_list = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+        orders = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
 
-        page = request.GET.get('page')
-        return render(request, "order_list.html", {'orders': orders})
+        return render(request, "profile.html", {'orders': orders})
 
 
 @login_required
@@ -86,6 +89,6 @@ def order_info(request, pk):
     order_total = 0
     line_item = OrderLineItem.objects.filter(order=order)
     for item in line_item:
-        order_total += item.total
-
-    return render(request, "order_info.html", {'order': order, 'line_item': line_item, 'order_total': order_total})
+        product = Product.objects.get(id=item.product.id)
+        order_total += product.price * item.quantity
+    return render(request, "order-info.html", {'order': order, 'line_item': line_item, 'order_total': order_total, 'product': product})
