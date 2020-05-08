@@ -2,23 +2,41 @@
 {% block page_title %}Order Details{% endblock %}
 {% block page_heading %}{{ user }}'s Order Info{% endblock %}
 {% block content %}
-  <section>
+<a href="{% url 'profile' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Profile</a>
+<section>
     <span>
-      
-
-      <h4 class="top-buffer">Order date:</h4>
-      <p class="bold-text">{{ order.date }}</p>
-
-      <h4 class="top-buffer">Items ordered:</h4>
-
       {% for item in line_item %}
-        <div class="row">
-            <p class="col-sm-2 col-md-3 bold-text">{{ item.product }}</p>
-            <p class="col-sm-1 col-md-1 bold-text">{{ item.quantity }}</p>
-            <p class="col-sm-1 col-md-1 bold-text">{{ order_total }}</p>
+        <div class="row align-items-center">
+            <div class="col-sm">
+                <h4 class="top-buffer">Order date:</h4>
+                <p class="bold-text">{{ order.date }}</p>
+            </div>
+            <div class="col-sm">        
+                <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
+                </div>  
+            </div>
+            <div class="col-sm">
+                <div class="caption d-sm-none d-md-block">
+                    <h4 class="top-buffer">Items ordered:</h4>
+                    <h3>{{ item.product.name }}</h3>
+                    <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
+                </div>
+                <div class="caption d-none d-sm-block d-md-none">
+                    <h5>{{ item.product.name }}</h5>
+                </div>
+            </div>
+            <div class="col-sm">
+                <p>Qty: {{item.quantity}}</p>
+                <p><i class="fas fa-dollar-sign"></i> {{ item.product.price }}</p>
+            </div>
+        </div> 
+        <hr class="my-block-divider">
+        {% endfor %}
+        <div class="row justify-content-end">
+            <p class="check-out-div-items-padding">Total:</p>
+            <p class="check-out-div-items-padding"><i class="fas fa-dollar-sign"></i> {{ order_total }}</p>
         </div>
-      {% endfor %}
     </span>
-  </section>
+</section>
 
 {% endblock %}

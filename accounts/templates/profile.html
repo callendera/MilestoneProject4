@@ -7,35 +7,54 @@
 {% block content %}
 <a href="{% url 'index' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Shop</a>
 
-                    <div class="row">
-                        <div class="col-6">
+<div class="row">
+    <div class="col-6">
         <h3>Personal Info <i class="fas fa-user"></i></h3>
+    
         <h6 class="py-2">
             <strong>Username:</strong>
         </h6>
         <p> {{ user }} </p>
+    
         <h6 class="py-2">
             <strong>Email Address:</strong>
         </h6>
         <p> {{ user.email }} </p>
+    
+        <a href="{% url 'password_reset' %}">Reset Password</a>
     </div>
     <div class="col-6">
         <h3> Order History <i class="fas fa-shopping-bag"></i> </h3>
-            {% if orders %}
+        {% if orders %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
                 {% for order in orders %}
-                    <span>
-                        <h4></h4>
-                        <p class="bold-text">Date: {{ order.date }}</p>
-                        <a href="{% url 'order-info' order.pk %}" class="btn button-login-color">Read more</a>
-                    </span>
+                    <tr>
+                        <th scope="row">{{ order.date }}</th>
+                        <td colspan="2"><i class="fas fa-dollar-sign"></i> {{ order_total }}</td>
+                         <td colspan="2"><a href="{% url 'order-info' order.pk %}" class="button-login-color">View Details</a></td>
+      
+                    </tr>
                 {% endfor %}
-            {% else %}
-                <span>
-                        <p>You have no Order History</p>
-                        <a href="{% url 'index' %}" class="btn button-login-color">Shop</a>
-                    </span>
-            {% endif %}
-    </div>
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <span>
+            <strong>You have no Order History</strong>
+            <a href="{% url 'index' %}" class="button-login-color">Go sShop</a>
+        </span>
+        {% endif %}
+     </div>
 </div>
+
                     
 {% endblock %}

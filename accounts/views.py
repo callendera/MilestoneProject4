@@ -45,7 +45,7 @@ def profile(request):
     """A view that displays the profile page of a logged in user"""
     if request.user:
         orders = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
-
+    
         return render(request, "profile.html", {'orders': orders})
 
 def registration(request):
