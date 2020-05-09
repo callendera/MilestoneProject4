@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io', 'localhost', 'haberdashery-app.herokuapp.com']
+ALLOWED_HOSTS = ['8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io','localhost', 'haberdashery-app.herokuapp.com']
 
 
 # Application definition
@@ -165,3 +165,9 @@ STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 465

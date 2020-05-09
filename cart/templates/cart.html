@@ -9,6 +9,14 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
 
 {% block content %}
 <div class="container-fluid">
+{% if not cart_items %}
+    <div class="row justify-content-center">
+        <heading class="col-11 col-md-8 col-lg-6 text-center">
+            <h1>Your cart is empty!</h1>
+            <a href="{% url 'products' %}" class="button-login-color arimo-font" >Lets go Shop</a>
+        </heading>
+    </div>
+{% else %}
     {% for item in cart_items %}
     <div class="row align-items-center">
         <div class="col-sm">        
@@ -50,5 +58,5 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
     <a href="{% url 'checkout' %}" class="btn button-login-color" role="button">Checkout</a>
 </div>
-
+{% endif %}
 {% endblock %} 

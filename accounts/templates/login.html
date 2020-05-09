@@ -9,6 +9,9 @@
     <button type="submit" class="btn button-login-color">Login</button>
 </form>
 <p>
-    <a href="{% url 'password_reset' %}">Reset Password</a>
+    New here? <a href="{% url 'registration' %}">Create Account</a>
+</p>
+<p>
+    Forget password? <a href="{% url 'password_reset' %}">Reset</a>
 </p>
 {% endblock %}
