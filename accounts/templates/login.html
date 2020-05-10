@@ -1,17 +1,22 @@
 {% extends 'base.html' %} 
 {% load bootstrap_tags %} 
 {% block page_title %}Login Page{% endblock %} 
+<!-- All headings have same style, font, and sizing -->
 {% block page_heading %}Login{% endblock %} 
 
 {% block content %}
+<!-- Class for form is specific, used to adjust this specific form formatting -->
 <form class="login-spacing-sizing" method="POST">
+<!-- Using built in bootstrap forms -->
     {% csrf_token %} {{ login_form | as_bootstrap}}
     <button type="submit" class="btn button-login-color">Login</button>
 </form>
 <p>
+<!-- link to create an account, triggering registration function -->
     New here? <a href="{% url 'registration' %}">Create Account</a>
 </p>
 <p>
+<!-- link to reset password, triggers password reset function -->
     Forget password? <a href="{% url 'password_reset' %}">Reset</a>
 </p>
 {% endblock %}
