@@ -3,12 +3,14 @@
 {% load bootstrap_tags %} 
 
 {% block page_title %}Registration Page{% endblock %} 
-
+<!-- All headings have same style, font, and sizing -->
 {% block page_heading %}User Registration{% endblock %} 
 
 {% block content %}
+<!-- login url directs users with an account to just log in -->
 <p>If you already have an account, you can <a href="{% url 'login' %}">sign in </a></p>
 <form method="POST">
+<!-- basic bootstrap form, saves user info check out registration_form in the accounts app forms.py  -->
     {% csrf_token %} {{ registration_form | as_bootstrap }}
     <button type="submit" class="btn button-login-color">Register</button>
 </form>
