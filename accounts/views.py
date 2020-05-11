@@ -28,14 +28,18 @@ def login(request):
 
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST['username'],
-                                    password=request.POST['password'])
+                                     password=request.POST['password'])
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully logged in!")
+                messages.success(
+                    request,
+                    "You have successfully logged in!"
+                    )
                 return redirect(reverse('index'))
             else:
-                login_form.add_error(None, "Your username or password is incorrect")
+                login_form.add_error(
+                    None, "Your username or password is incorrect")
     else:
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
@@ -44,9 +48,13 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
     if request.user:
-        orders = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
-    
+        orders = Order.objects.filter(
+            user=request.user,
+            date__lte=timezone.now()
+            ).order_by('-date')
+
         return render(request, "profile.html", {'orders': orders})
+
 
 def registration(request):
     """Render the registration page"""
@@ -63,13 +71,20 @@ def registration(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered, You can now Log In")
+                messages.success(
+                    request,
+                    "You have successfully registered, You can now Log In"
+                    )
             else:
-                messages.error(request, "Unable to register your account at this time")
+                messages.error(
+                    request,
+                    "Unable to register your account at this time"
+                    )
     else:
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
-        "registration_form": registration_form})
+        "registration_form": registration_form
+        })
 
 @login_required
 def order_history(request):
@@ -77,13 +92,19 @@ def order_history(request):
     Retrieves the order history of the user.
     """
     if request.user:
-        orders = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+        orders = Order.objects.filter(
+            user=request.user,
+            date__lte=timezone.now()
+            ).order_by('-date')
 
         return render(request, "profile.html", {'orders': orders})
 
 
 @login_required
 def order_info(request, pk):
+    """
+    This captures order info to then be displayed in profile for user
+    """
     order = get_object_or_404(Order, pk=pk)
     order.save()
     order_total = 0
@@ -91,4 +112,11 @@ def order_info(request, pk):
     for item in line_item:
         product = Product.objects.get(id=item.product.id)
         order_total += product.price * item.quantity
-    return render(request, "order-info.html", {'order': order, 'line_item': line_item, 'order_total': order_total, 'product': product})
+    return render(
+        request,
+        "order-info.html",
+        {'order': order,
+         'line_item': line_item,
+         'order_total': order_total,
+         'product': product},
+        )

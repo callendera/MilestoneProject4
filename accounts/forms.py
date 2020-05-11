@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from accounts.models import Customer
 
 
-
 class UserLoginForm(forms.Form):
     """Form for logging users in"""
 

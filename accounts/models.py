@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 
 
 class Customer(models.Model):
+    """
+    This provides the layout of info to be
+    captured from a customer that makes a purchase,
+    using OneToOneField to capture the user for earch order,
+    links to account app's views.py and checkout app
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=16)
