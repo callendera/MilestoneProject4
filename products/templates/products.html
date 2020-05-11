@@ -60,7 +60,7 @@
                                         <h4 class="card-title didact-gothic-font d-sm-none d-md-block">Succulents</h4>
                                         <p class="card-text arimo-font d-sm-none d-md-block">Our succulents are planted and grown right in our backyard, curated by our gardeners who spents years perfecting their craft. </p>
                                         <form class="width-removal" action="{% url 'search' %}" method="get">
-                                            <input type="text" class="form-control d-none" value="Succulents" name="q">
+                                            <input type="text" class="form-control d-none" value="Succulent" name="q">
                                             <a href="#shop"><button class="btn button-register-color arimo-font" type="search">Shop Succulents</button></a>
                                         </form>
                                     </div>
@@ -148,6 +148,7 @@
 </div>
 
 <div class="row row flex">
+{% if products|length > 0 %}
     {% for product in products %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default" id="shop">
         <div class="panel-body">
@@ -201,5 +202,11 @@
 </div>
 
     {% endfor %}
+{% else %}
+            <div class="col">
+                <h1>0 Results</h1>
+                <h2>Oh no, we can't find any products that match your search</h2>
+            </div> 
+        {% endif %} 
 </div>
 {% endblock %}

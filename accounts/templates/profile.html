@@ -1,16 +1,18 @@
 {% extends 'base.html' %} 
 
 {% block page_title %}My Profile{% endblock %} 
-
+<!-- All headings have same style, font, and sizing, this one calls to the user's username to identify the profile by user -->
 {% block page_heading %}{{ user }}'s Profile{% endblock %} 
 
 {% block content %}
+<!-- link to go back to shop view, triggering index function to take user to main site page -->
 <a href="{% url 'index' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Shop</a>
 
 <div class="row">
     <div class="col-6">
         <h3>Personal Info <i class="fas fa-user"></i></h3>
     
+    <!-- Displays specific user info and gives option for the user to reset password via email -->
         <h6 class="py-2">
             <strong>Username:</strong>
         </h6>
@@ -20,15 +22,19 @@
             <strong>Email Address:</strong>
         </h6>
         <p> {{ user.email }} </p>
-    
+
+        <!-- triggers password_reset function function -->
         <a href="{% url 'password_reset' %}">Reset Password</a>
     </div>
     <div class="col-6">
         <h3> Order History <i class="fas fa-shopping-bag"></i> </h3>
+
+        <!-- If statement checks for orders in the user's order history, it also lays them out in a responsive table -->
         {% if orders %}
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
+                <!-- headings for the columns in the table -->
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Total</th>
@@ -36,6 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!-- For loop iterates over all orders in the order history to displa them on the table by date -->
                 {% for order in orders %}
                     <tr>
                         <th scope="row">{{ order.date }}</th>
@@ -47,6 +54,7 @@
                 </tbody>
             </table>
         </div>
+        <!-- else is used to display a message to the user when they have made no purchases -->
         {% else %}
         <span>
             <strong>You have no Order History</strong>

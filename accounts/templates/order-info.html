@@ -1,24 +1,31 @@
 {% extends "base.html" %}
 {% block page_title %}Order Details{% endblock %}
+<!-- All headings have same style, font, and sizing. This one calls for the user's username -->
 {% block page_heading %}{{ user }}'s Order Info{% endblock %}
 {% block content %}
+<!-- link to go back to profile view, triggering profile function -->
 <a href="{% url 'profile' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Profile</a>
 <section>
     <span>
+    <!-- The for loop here is used to display a specific product depending on what product was clicked on the profile page -->
       {% for item in line_item %}
         <div class="row align-items-center">
             <div class="col-sm">
+            <!-- order date is captured in the check out and connected to the users order history in the profile veiw from accounts -->
                 <h4 class="top-buffer">Order date:</h4>
                 <p class="bold-text">{{ order.date }}</p>
             </div>
-            <div class="col-sm">        
+            <div class="col-sm">
+                <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->        
                 <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
                 </div>  
             </div>
             <div class="col-sm">
                 <div class="caption d-sm-none d-md-block">
+                <!-- Gives name of specific item that was ordered -->
                     <h4 class="top-buffer">Items ordered:</h4>
                     <h3>{{ item.product.name }}</h3>
+                    <!-- short product description -->
                     <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
                 </div>
                 <div class="caption d-none d-sm-block d-md-none">
@@ -26,13 +33,16 @@
                 </div>
             </div>
             <div class="col-sm">
+            <!--gives how much was ordered of that specific product-->
                 <p>Qty: {{item.quantity}}</p>
+                <!-- gives price of specific product from order -->
                 <p><i class="fas fa-dollar-sign"></i> {{ item.product.price }}</p>
             </div>
         </div> 
         <hr class="my-block-divider">
         {% endfor %}
         <div class="row justify-content-end">
+        <!-- Gives total for entire purchase, check-out-div-items-padding puts a padding around total to move it up from the footer -->
             <p class="check-out-div-items-padding">Total:</p>
             <p class="check-out-div-items-padding"><i class="fas fa-dollar-sign"></i> {{ order_total }}</p>
         </div>
