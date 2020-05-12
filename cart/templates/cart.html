@@ -5,7 +5,7 @@
 <!-- All headings have same style, font, and sizing, 
 this one calls to the users products in their cart. 
 If there is nothing in the cart, the pill will not show -->
-{% block page_heading %}s
+{% block page_heading %}
 My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ product_count }}</label> {% endif %}
 {% endblock %}
 
@@ -65,6 +65,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
     {% endfor %}
 </div>
 <div class="row justify-content-end check-out-div">
+
     <p class="check-out-div-items-padding">Total </p>
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
     <a href="{% url 'checkout' %}" class="btn button-login-color" role="button">Checkout</a>
