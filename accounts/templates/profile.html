@@ -43,10 +43,11 @@
                 </thead>
                 <tbody>
                 <!-- For loop iterates over all orders in the order history to displa them on the table by date -->
+                
                 {% for order in orders %}
                     <tr>
                         <th scope="row">{{ order.date }}</th>
-                        <td colspan="2"><i class="fas fa-dollar-sign"></i> {{ order_total }}</td>
+                        <td colspan="2"><i class="fas fa-dollar-sign"></i> {{ order.total }}</td>
                          <td colspan="2"><a href="{% url 'order-info' order.pk %}" class="button-login-color">View Details</a></td>
       
                     </tr>
@@ -55,7 +56,8 @@
             </table>
         </div>
         <!-- else is used to display a message to the user when they have made no purchases -->
-        {% else %}
+                
+            {% else %}
         <span>
             <strong>You have no Order History</strong>
             <a href="{% url 'index' %}" class="button-login-color">Go sShop</a>

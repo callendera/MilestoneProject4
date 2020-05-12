@@ -44,6 +44,7 @@ def login(request):
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
 
+
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
@@ -52,7 +53,12 @@ def profile(request):
             user=request.user,
             date__lte=timezone.now()
             ).order_by('-date')
-
+        for order in orders:
+            order.total = 0
+            line_item = OrderLineItem.objects.filter(order=order)
+            for item in line_item:
+                product = Product.objects.get(id=item.product.id)
+                order.total += product.price * item.quantity
         return render(request, "profile.html", {'orders': orders})
 
 

@@ -2,29 +2,38 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 {% block page_title %}My Cart{% endblock %} 
-{% block page_heading %}
+<!-- All headings have same style, font, and sizing, 
+this one calls to the users products in their cart. 
+If there is nothing in the cart, the pill will not show -->
+{% block page_heading %}s
 My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ product_count }}</label> {% endif %}
 {% endblock %}
 
 
 {% block content %}
 <div class="container-fluid">
+<!-- IF NOT statement is used to check if there are any items in the cart -->
 {% if not cart_items %}
     <div class="row justify-content-center">
         <heading class="col-11 col-md-8 col-lg-6 text-center">
+        <!-- will Display if there is nothing in the cart -->
             <h1>Your cart is empty!</h1>
+            <!-- triggers all_product function, takes user to home page that displays all products -->
             <a href="{% url 'products' %}" class="button-login-color arimo-font" >Lets go Shop</a>
         </heading>
     </div>
 {% else %}
+<!-- ELSE, if there are items in the cart then you will be displayed your items in the following FOR LOOP -->
     {% for item in cart_items %}
     <div class="row align-items-center">
-        <div class="col-sm">        
+        <div class="col-sm">
+            <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->      
             <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
         
             </div>  
         </div>
         <div class="col-sm">
+        <!-- shows all of the product info specific to the items in the cart -->
             <div class="caption d-sm-none d-md-block">
                 <h3>{{ item.product.name }}</h3>
                 <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
@@ -35,6 +44,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
         </div>
         <div class="col-sm">
             <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
+            <!-- the adjust_cart url triggers that function, it also targets a specific item in the cart -->
             <form class="form-inline" method="POST" action="{% url 'adjust_cart' item.id %}">
                 {% csrf_token %}
                 <div class="form-group">
@@ -45,6 +55,7 @@ My Cart {% if product_count > 0 %} <label class="badge badge-pill my-badge">{{ p
                     </div>
                 </div>
                 <button type="submit" class="btn adjust-item-button button-login-color arimo-font"><i class="fas fa-edit"></i>  </button>
+                <!-- This triggers remove_from_cart function and targets specific item id -->
                 <a href="{% url 'remove_from_cart' item.id %}" class="button-login-color arimo-font">Remove</a>
             </form>
     
