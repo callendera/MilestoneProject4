@@ -184,51 +184,50 @@ nothing matched their search  -->
                 <div class="input-group">
 				    <input type="number" value="1" aria-label="Search" min="1" max="999" class="form-control"  name="quantity" style="display:none">
 					<button class="btn btn-outline-dark button-login-color arimo-font" type="submit">Add to cart</button>
-                    <button type="button" class="btn adjust-item-button button-login-color arimo-font" data-toggle="modal" data-target="#exampleModalScrollable">View Details</button>
+                    <button type="button" class="btn adjust-item-button button-login-color arimo-font" data-toggle="modal" data-target="#exampleModalScrollable{{ product.id }}">View Details</button>
                 </div>
             </form>
         </div>
     </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalScrollableTitle">{{ product.name }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="panel-body">
-            <div class="product product-image" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}">
-            </div>
-            <p class="product-description">{{ product.description }} </p>
-            <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>
-            
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		<form method="POST" id="quantity" action="{% url 'add_to_cart' product.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-				    <input type="number" value="1" aria-label="Search" min="1" max="999" class="form-control"  name="quantity" style="display:none">
-					<button class="btn btn-outline-dark button-login-color arimo-font" type="submit">Add to cart</button>
+<!-- shows product details in the all products view -->
+    <div class="modal fade" id="exampleModalScrollable{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">{{ product.name }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </form>
-      </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="product product-image" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}">
+                        </div>
+                        <p class="product-description">{{ product.description }} </p>
+                        <p><i class="fas fa-euro-sign"></i> {{ product.price }}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		            <form method="POST" id="quantity" action="{% url 'add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+				            <input type="number" value="1" aria-label="Search" min="1" max="999" class="form-control"  name="quantity" style="display:none">
+					        <button class="btn btn-outline-dark button-login-color arimo-font" type="submit">Add to cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>  
     </div>
-  </div>
-</div>
-
-    {% endfor %}
+{% endfor %}
 {% else %}
-            <div class="col">
-                <h1>0 Results</h1>
-                <h2>Oh no, we can't find any products that match your search</h2>
-            </div> 
-        {% endif %} 
+    <div class="col">
+        <h1>0 Results</h1>
+        <h2>Oh no, we can't find any products that match your search</h2>
+    </div> 
+{% endif %}
 </div>
 {% endblock %}
