@@ -1,3 +1,9 @@
+import os
+import dj_database_url
+if os.path.exists('env.py'):
+    import env
+
+
 """
 Django settings for cactus project.
 
@@ -9,11 +15,6 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
-import os
-if os.path.exists('env.py'):
-    import env
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,9 +30,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-e7b1ccf6-821f-4518-b71d-133df67871d5.ws-us02.gitpod.io',
     'localhost',
     'haberdashery-app.herokuapp.com',
+    'ec2-54-81-37-115.compute-1.amazonaws.com'
     ]
 
 

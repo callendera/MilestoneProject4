@@ -1,19 +1,16 @@
-/* * {
-  background: #000 !important;
-  color: #0f0 !important;
-  outline: solid #f00 1px !important;
-} */
-
 body {
     padding-top: 0;
+    /* removes padding from top of body, had issue with pre-set padding with bootstrapforms */
 }
 
 .check-out-div-items-padding {
     padding: 5px;
+    /* gives small about of padding for elements in checkout view */
 }
 
 .check-out-div {
     padding-bottom: 100px;
+    /* adds space between Order Summary and payment/personal info */
 }
 
 .my-badge {
