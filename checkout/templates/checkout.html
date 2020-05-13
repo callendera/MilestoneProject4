@@ -2,6 +2,7 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+<!-- JS in html to call to stripe publichable key, this completes the transaction -->
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -13,16 +14,20 @@
 {% endblock %}
 
 {% block content %}
+<!-- For Loop is used to show the items in the cart as an Order preview -->
 {% for item in cart_items %}
 <div class="row align-items-center">
-        <div class="col-sm">        
+        <div class="col-sm">  
+            <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->      
             <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
         
             </div>  
         </div>
         <div class="col-sm">
             <div class="caption d-sm-none d-md-block">
+            <!-- Gives name of specific item to be ordered -->
                 <h3>{{ item.product.name }}</h3>
+                <!-- short product description -->
                 <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
             </div>
             <div class="caption d-none d-sm-block d-md-none">
@@ -30,17 +35,21 @@
             </div>
         </div>
         <div class="col-sm">
+        <!--gives how much to order of that specific product-->
             <p>Qty: {{item.quantity}}</p>
+            <!--gives product price of specific item in the cart-->
             <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
         </div>
     </div> 
     <hr class="my-block-divider">
     {% endfor %}
+    <!--triggers view cart function to take user back to cart while in the checkout page-->
     <a href="{% url 'view_cart' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Cart</a>
 <div class="row justify-content-end">
     <p class="check-out-div-items-padding">Total:</p>
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
 </div>
+<!--Submits payment to stripe, all verification done through stripe, triggers checkout function-->
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Personal Info</legend>
         <hr class="my-checkout-block-divider">
