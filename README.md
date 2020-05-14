@@ -358,3 +358,158 @@ All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobil
             'product': product},
             )
 ```
+
+* Logout
+    * If the user needs to logout they can simply use the logout button in the Navbar, 
+    The user is automatically logged out and taken to the home, it also gives a successfully logged out message.
+
+```
+    @login_required
+    def logout(request):
+        """Log the user out"""
+        auth.logout(request)
+        messages.success(request, "You have successfully been logged out")
+        return redirect(reverse('index'))
+```
+* Products App - As a user I want to:
+    * Browse all the products
+        * On the home page, all of the products are displayed
+        * This function grabs the products model
+        * All_Products function is show below:
+```
+def all_products(request):
+    products = Product.objects.all()
+    return render(request, "products.html", {"products": products})
+
+The following tests were written to test that the products are passing through correctly, and to test the products url
+
+class TestProductUrls(TestCase):
+    def test_url_resolved(self):
+        url = reverse('index')
+        self.assertEquals(resolve(url).func, all_products)
+
+
+class ProductTests(TestCase):
+    def test_str(self):
+        test_name = Product(name='A product')
+        self.assertEqual(str(test_name), 'A product')
+```
+
+* Searh App - As a user I want to:
+    * Search for specific items
+        * The search bar in the Navbar triggers the search function
+        * The search function is also used in the second slide of carousel. This slide gives the user the option to shop Herbal or Shop Succulents
+            * In the html I hid a search bar with those buttons with a set value to pull up the specified searches
+            * Example below from products.html
+```
+<form class="width-removal" action="{% url 'search' %}" method="get">
+    <input type="text" class="form-control d-none" value="Succulent" name="q">
+    <a href="#shop"><button class="btn button-register-color arimo-font" type="search">Shop Succulents</button></a>
+</form>
+
+Here is also the search function, This function also triggers some JS that automatically scrolls down to view the search results that populate
+
+def do_search(request):
+    products = Product.objects.filter(name__icontains=request.GET['q'])
+    return render(request, "products.html", {"products": products, "scroll_to_search_results": True})
+```
+
+* Cart App - As a user I want to: 
+    * Add items to the cart
+        * When viewing any product the add to cart option is available.
+        * This button adds one product to the cart at a time
+        * The Function shown below also allows the the user to add the same product to the quantity instead of adding a whole new product.
+        * This also saves the cart id for the session so the cart items don't dissapear
+```
+def add_to_cart(request, id):
+    quantity = int(request.POST.get('quantity'))
+    
+    cart = request.session.get('cart', {})
+    if id in cart:
+        cart[id] = int(cart[id]) + quantity
+    else:
+        cart[id] = cart.get(id, quantity)
+    
+    print(cart)
+
+    request.session['cart'] = cart
+    return redirect(reverse('index'))
+
+```
+
+* Checkout App - As a user I want to:
+    * Purchase my items
+        * After viewing the items in the cart, I click the checkout button
+        * This button then triggers the 1st part of the checkout function which POSTs the order form
+        * The form is split into 2 sections: Personal info and Payment info
+        * This Form is preceded by an order summary, that gives the option to go back to cart
+        * After the user has filled in the Order form, 2 buttons are shown that say "Review Order" or "Submit Payment"
+        * Review Order toggles a modal to ask if order is correct
+        * Submit payment then places the order with stripe And the order can then be seen in the Profile view and Oder Info view
+
+        * The following function runs the checkout
+            * The forms are posted
+            * The time/date is captured, along with the validation if the form is valid
+            * If the form is valid, the information from the order is saved to be displayed later in the order_info/Order_History
+            * The checkout app also pulls the cart session to complete the order if the forms are valid
+            * If there is an error in the forms, the order will not be processed until the errors are corrected and form is resubmitted.
+            * If something is wrong with the card, an error message will displayed explaining the card is declined or not accepted
+            
+```
+@login_required()
+def checkout(request):
+    if request.method == "POST":
+        order_form = OrderForm(request.POST)
+        payment_form = MakePaymentForm(request.POST)
+        now = timezone.now()
+        if order_form.is_valid() and payment_form.is_valid():
+            order = order_form.save(commit=False)
+            order.date = now
+
+            order.user = request.user
+            order.save()
+
+            cart = request.session.get('cart', {})
+            total = 0
+            for id, quantity in cart.items():
+                product = get_object_or_404(Product, pk=id)
+                total += quantity * product.price
+                order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                    )
+                order_line_item.save()
+            
+            try:
+                customer = stripe.Charge.create(
+                    amount=int(total * 100),
+                    currency="USD",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id']
+                )
+            except stripe.error.CardError:
+                messages.error(request, "Your card was declined!")
+            if customer.paid:
+                messages.error(request, "You have successfully paid, Chek out your Profile for Order History")
+                request.session['cart'] = {}
+                return redirect(reverse('products'))
+            else:
+                messages.error(request, "Unable to take payment")
+        else:
+            print(payment_form.errors)
+            messages.error(
+                request,
+                "We were unable to take a payment with that card!"
+            )
+    else:
+        payment_form = MakePaymentForm()
+        order_form = OrderForm()
+    return render(
+        request,
+        "checkout.html",
+        {"order_form": order_form,
+            "payment_form": payment_form,
+            "publishable": settings.STRIPE_PUBLISHABLE})
+
+```
