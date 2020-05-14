@@ -19,34 +19,34 @@ Order Summary
 <!-- For Loop is used to show the items in the cart as an Order preview -->
 {% for item in cart_items %}
 <div class="row align-items-center">
-        <div class="col-sm">  
-            <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->      
-            <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
+    <div class="col-sm">  
+        <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->      
+        <div class="product product-image-in-cart" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}">
         
-            </div>  
+        </div>  
+    </div>
+    <div class="col-sm">
+        <div class="caption d-sm-none d-md-block">
+        <!-- Gives name of specific item to be ordered -->
+            <h3>{{ item.product.name }}</h3>
+            <!-- short product description -->
+            <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
         </div>
-        <div class="col-sm">
-            <div class="caption d-sm-none d-md-block">
-            <!-- Gives name of specific item to be ordered -->
-                <h3>{{ item.product.name }}</h3>
-                <!-- short product description -->
-                <p class="product-description">{{ item.product.description|truncatewords:10 }}</p>
-            </div>
-            <div class="caption d-none d-sm-block d-md-none">
-                <h5>{{ item.product.name }}</h5>
-            </div>
+        <div class="caption d-none d-sm-block d-md-none">
+            <h5>{{ item.product.name }}</h5>
         </div>
-        <div class="col-sm">
-        <!--gives how much to order of that specific product-->
-            <p>Qty: {{item.quantity}}</p>
-            <!--gives product price of specific item in the cart-->
-            <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
-        </div>
-    </div> 
-    <hr class="my-block-divider">
-    {% endfor %}
-    <!--triggers view cart function to take user back to cart while in the checkout page-->
-    <a href="{% url 'view_cart' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+    </div>
+    <div class="col-sm">
+    <!--gives how much to order of that specific product-->
+        <p>Qty: {{item.quantity}}</p>
+        <!--gives product price of specific item in the cart-->
+        <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
+    </div>
+</div> 
+<hr class="my-block-divider">
+{% endfor %}
+<!--triggers view cart function to take user back to cart while in the checkout page-->
+<a href="{% url 'view_cart' %}" class="button-login-color"><i class="fas fa-arrow-left"></i> Back to Cart</a>
 <div class="row justify-content-end">
     <p class="check-out-div-items-padding">Total:</p>
     <p class="check-out-div-items-padding"><i class="fas fa-euro-sign"></i> {{ total }}</p>
@@ -55,27 +55,28 @@ Order Summary
 <!--Submits payment to stripe, all verification done through stripe, triggers checkout function-->
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Personal Info</legend>
-        <hr class="my-checkout-block-divider">
+    <hr class="my-checkout-block-divider">
     <div id="credit-card-errors" style="display: none;">
         <div id="alert-message block-message error" id="stripe-error-message"></div>
     </div>
     <div class="row">
-    <div class="form-group col-sm">
-        {{ order_form | as_bootstrap }}
-    </div>
+        <div class="form-group col-sm">
+            {{ order_form | as_bootstrap }}
+        </div>
     </div>
     <legend>Payment Details</legend>
-    
     <hr class="my-checkout-block-divider">
     <div class="row">
-    <div class="form-group col-sm">
-        {{ payment_form | as_bootstrap }}
+        <div class="form-group col-sm">
+            {{ payment_form | as_bootstrap }}
+        </div>
     </div>
+    <div class="form-group col-md-12">
+        <input class=" btn button-login-color" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        <button type="button" class="btn button-login-color" data-toggle="modal" data-target="#exampleModal">
+            Review Order
+        </button>
     </div>
-    <button type="button" class="btn button-login-color" data-toggle="modal" data-target="#exampleModal">
-    Review Order
-    </button>
-
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -85,8 +86,8 @@ Order Summary
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
                 {% for item in cart_items %}
+                <div class="modal-body">
                     <div class="row align-items-center">
                         <div class="col-sm">  
                         <!-- for all product images that are being pulled from the database they had to be placed in the html with a style attribute -->      
@@ -122,11 +123,12 @@ Order Summary
                 <div class="modal-footer">
                     {% csrf_token %}
                     <div class="form-group col-md-12">
-                        <input class=" btn button-login-color" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{% url 'view_cart' %}" class="btn adjust-item-button button-login-color arimo-font">
+                            Update
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Looks Good</button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
