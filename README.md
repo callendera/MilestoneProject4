@@ -258,6 +258,7 @@ All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobil
             * A check is done to make sure form is valid, 
             if it is valid the user is successfully registered you are automatically logged in and the user is then taken to the profile page. 
             If the form is not valid it will not register the user and it shows the errors that caused the registration to fail
+
  ```
     def registration(request):
     """Render the registration page"""
@@ -301,56 +302,59 @@ All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobil
             * The profile function below shows the profile view, it runs a request for user info. That info is then displayed in profile.
             * The profile view caculates the order total to be displayed in the order list on the table in the profile
 ```
-@login_required
-def profile(request):
-    if request.user:
-        orders = Order.objects.filter(
-            user=request.user,
-            date__lte=timezone.now()
-            ).order_by('-date')
-        for order in orders:
-            order.total = 0
-            line_item = OrderLineItem.objects.filter(order=order)
-            for item in line_item:
-                product = Product.objects.get(id=item.product.id)
-                order.total += product.price * item.quantity
+    @login_required
+    def profile(request):
+        if request.user:
+            orders = Order.objects.filter(
+                user=request.user,
+                date__lte=timezone.now()
+                ).order_by('-date')
+            for order in orders:
+                order.total = 0
+                line_item = OrderLineItem.objects.filter(order=order)
+                for item in line_item:
+                    product = Product.objects.get(id=item.product.id)
+                    order.total += product.price * item.quantity
         return render(request, "profile.html", {'orders': orders})
-    ```
+```
+
 
  The Order history function below shows the date and links the user to the specific order history
 
- ```
-@login_required
-def order_history(request):
-    if request.user:
-        orders = Order.objects.filter(
-            user=request.user,
-            date__lte=timezone.now()
-            ).order_by('-date')
 
+ ```
+    @login_required
+    def order_history(request):
+        if request.user:
+            orders = Order.objects.filter(
+                user=request.user,
+                date__lte=timezone.now()
+                ).order_by('-date')
         return render(request, "profile.html", {'orders': orders})
 ```
+
 
         Order info Is triggered when the view details link is clicked. 
         It shows the details of the specific order. The function grabs the order when it is purchased, 
         it calculates the order total, keeps the product info, and displays it on a new page
 
+
 ```
-@login_required
-def order_info(request, pk):
-    order = get_object_or_404(Order, pk=pk)
-    order.save()
-    order_total = 0
-    line_item = OrderLineItem.objects.filter(order=order)
-    for item in line_item:
-        product = Product.objects.get(id=item.product.id)
-        order_total += product.price * item.quantity
-    return render(
-        request,
-        "order-info.html",
-        {'order': order,
-         'line_item': line_item,
-         'order_total': order_total,
-         'product': product},
-        )
+    @login_required
+    def order_info(request, pk):
+        order = get_object_or_404(Order, pk=pk)
+        order.save()
+        order_total = 0
+        line_item = OrderLineItem.objects.filter(order=order)
+        for item in line_item:
+            product = Product.objects.get(id=item.product.id)
+            order_total += product.price * item.quantity
+        return render(
+            request,
+            "order-info.html",
+            {'order': order,
+            'line_item': line_item,
+            'order_total': order_total,
+            'product': product},
+            )
 ```
