@@ -39,6 +39,22 @@ body {
     /* adds space between Order Summary and payment/personal info */
 }
 
+/*--- sets background with cactus gif in 404.html ---*/
+.error-body {
+    background: url("../images/yikes.gif")repeat center center fixed;
+    /*--- sets background for different browsers ---*/
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
 footer {
     /*--- background is a darker grey to set it apart from te rest of webpage ---*/
     background-color: #7f7f7f;

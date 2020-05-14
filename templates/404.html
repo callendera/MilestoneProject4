@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block page_title %}404 Error{% endblock %} 
+{% block page_heading %}Yikes{% endblock %} 
+
+{% block content %}
+<div class="error-body">
+    <h1>404 Error</h1>        
+    <h2 class="col-12">Page not found. Please <a href="{% url 'index' %}">Click Here</a> to navigate back to home page.</h2>
+</div>
+{% endblock %}

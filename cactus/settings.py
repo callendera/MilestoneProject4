@@ -34,7 +34,6 @@ ALLOWED_HOSTS = [
     'haberdashery-app.herokuapp.com'
     ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
