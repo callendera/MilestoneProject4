@@ -39,17 +39,14 @@ The app is fully functional on all screen sizes with extensive testing for each 
     a modal appears that gives product image, name, a full description and price with an add to cart option or close option.
     Specific categories of products are also available. If the user selects the shop herbal or shop succulents buttons on second carousel slides, 
     the user will be directed to those items on the home page.
-    
     * A user is looking for a speicfic product, they come to the landing page and select the search bar. If they input a value that does not match
     any product in the database a message propmts them to search again. When a search is input that matches items in the database, the screan is then automatically
     scrolled down to search results.
-
     * User trying to make a purchase is propmted to sign in before continuing to check out after adding items to their cart. when user is logged in, they are brought to the checkout once more so they can
     review order summary and then continue to the personal info form, all items are required besides Address 2. Then, the card info is input. The submit button on the form 
     is accompanied by the review order button, this triggers a modal that pops up and asks if everything looks okay. The modal is populated by items in the customers's cart and then 
     2 options; Update (takes user to cart to edit items), and Looks Good that closes the modal.
     When the user submits payment, a successful payment message appears and the user is take back to home page.
-
     * User trying to login or create an account. On the home page, the user is shown a welcome message with some info about Andrea's Haberdashery. There are also 2 buttons shown
     the 1st one prompts the user to Login, the 2nd asks user to register an account. If he user would like to login, they can use the link in the Navbar to Login or follwo the button on the home page.
     The user is then met with a login page with a small form that asks for Username and Password. If the user already has an account with Andrea's Haberdashery then, an error message will appear that gives
@@ -57,14 +54,27 @@ The app is fully functional on all screen sizes with extensive testing for each 
     If the user would like to register an accunt they are taken to the register form by either using the Navbar or Register button on home page. When the user registers they are tken to a Registration page that
     asks for email, username, and a password then password verificaton. All fields are required and if the user is successfully registered, then a successful registration message appears and takes the user to the profile page.
     Alternatively the user will Log Out by simply clicking the sign out button in Navbar.
-
     * User who has made purchases and wants to see order history/details. AFter logging in, the user can click on Profile symbol. The user then comes to the profile where their email and username are displayed, 
     then if the user has no order history a message shows under Order History Title that says the user has no order history and to go shop.
     If the user has order history, the history will appear in a list by date in a table. Each order has a view details option that takes the user to another page that contains full item details, prices, and total cost of Order
-
     * User making adjustments to cart. After adding items to their cart, the user can go to view their cart, from there the user can remove items and edit the amount or each product. The remove product button shows up as a link
     and instantly removes item from cart. To edit, the user will use arrows to adjust the amount in input field beside Qty and then click the "edit" icon, This automatically updates cart.
 
 #### Wireframes:
 
-![Wireframe PDF](file:///C:/Users/Autumn/Pictures/Saved%20Pictures/HaberdasheryWireframe.pdf)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0001.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0002.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0003.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0004.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0005.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0006.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0007.jpg)
+
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/dcb173682f0196e75a1b5870beda8ed9ba083b6c/static/images/wireframes/0008.jpg)
+
