@@ -187,7 +187,7 @@ The app is fully functional on all screen sizes with extensive testing for each 
 
 ### UX Stories: Testing / Manual Testing
 All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobile/Tablet features were tested on Apple and Samsung devices. Everything was tested using a wide range of screensizes.
-* As a user I want to:
+* Accounts App - As a user I want to:
     * Login:
         * After coming to the home page,
         * I can either use the Navbar login link or the Login option in Slide 1 of the Carousel
@@ -227,4 +227,135 @@ All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobil
             else:
                 login_form = UserLoginForm()
         return render(request, 'login.html', {'login_form': login_form})
+        ```
+        Below is the Test I wrote for Login view, I created the setUp for any tests that may be used in the tests.py
+        It runs a test on the view of the login to make sure the url is working correctly
+
+        ```
+        class TestloginView(TestCase):
+    # Sets up the testing to be down follwoing the setUp
+    def setUp(self):
+        self.client = Client()
+        self.index_url = reverse('index')
+
+    def test_login_view_POST(self):
+        # runs test for login view
+        response = self.client.post(reverse('index'))
+
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products.html', 'base.html')
+        ```
+* 
+    * Register:
+        * After coming to the home page,
+        * I can either use the Navbar Register link or the Register option in Slide 1 of the Carousel
+        * After clicking the Register button, I am directed to the Registration page that is triggered by the Registration view in the accounts app
+        * The form is all required and asks for Email, username, password 1, and password confirmation
+        
+        * Explanation of Registration function in Accounts App
+            * The function below shows the registration view, it initially checks if the user is authenticated, it will not open form if the user is already logged in.
+            * It then, posts the registration form.
+            * A check is done to make sure form is valid, 
+            if it is valid the user is successfully registered you are automatically logged in and the user is then taken to the profile page. 
+            If the form is not valid it will not register the user and it shows the errors that caused the registration to fail
+    ```
+    def registration(request):
+    """Render the registration page"""
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
+
+    if request.method == "POST":
+        registration_form = UserRegistrationForm(request.POST)
+
+        if registration_form.is_valid():
+            registration_form.save()
+
+            user = auth.authenticate(username=request.POST['username'],
+                                     password=request.POST['password1'])
+            if user:
+                auth.login(user=user, request=request)
+                messages.success(
+                    request,
+                    "You have successfully registered"
+                    )
+                return redirect(reverse('profile'))
+            else:
+                messages.error(
+                    request,
+                    "Unable to register your account at this time"
+                    )
+            return redirect(reverse('all_products'))
+    else:
+        registration_form = UserRegistrationForm()
+    return render(request, 'registration.html', {
+        "registration_form": registration_form
+        })
+        ```
+* 
+    * Profile:
+        * After logging in or registering the profile view is immediatly available,
+        * After clicking the profile button, I am taken to the profile page
+        * On that page, the username and email are displayed, but the order_info and order_history functions are triggered 
+        
+        * Explanation of Profile, Order_Info, and Order_History functions in Accounts App
+            * The profile function below shows the profile view, it runs a request for user info. That info is then displayed in profile.
+            * The profile view caculates the order total to be displayed in the order list on the table in the profile
+    ```
+    @login_required
+def profile(request):
+    """A view that displays the profile page of a logged in user"""
+    if request.user:
+        orders = Order.objects.filter(
+            user=request.user,
+            date__lte=timezone.now()
+            ).order_by('-date')
+        for order in orders:
+            order.total = 0
+            line_item = OrderLineItem.objects.filter(order=order)
+            for item in line_item:
+                product = Product.objects.get(id=item.product.id)
+                order.total += product.price * item.quantity
+        return render(request, "profile.html", {'orders': orders})
+        ```
+        The Order history function below shows the date and links the user to the specific order history
+        ```
+    @login_required
+def order_history(request):
+    """
+    Retrieves the order history of the user.
+    """
+    if request.user:
+        orders = Order.objects.filter(
+            user=request.user,
+            date__lte=timezone.now()
+            ).order_by('-date')
+
+        return render(request, "profile.html", {'orders': orders})
+
+        ```
+        Order info Is triggered when the view details link is clicked. 
+        It shows the details of the specific order. The function grabs the order when it is purchased, 
+        it calculates the order total, keeps the product info, and displays it on a new page"
+          ```
+    @login_required
+def order_info(request, pk):
+    """
+    This captures order info to then be displayed in profile for user
+    """
+    order = get_object_or_404(Order, pk=pk)
+    order.save()
+    order_total = 0
+    line_item = OrderLineItem.objects.filter(order=order)
+    for item in line_item:
+        product = Product.objects.get(id=item.product.id)
+        order_total += product.price * item.quantity
+    return render(
+        request,
+        "order-info.html",
+        {'order': order,
+         'line_item': line_item,
+         'order_total': order_total,
+         'product': product},
+        )
+
         ```
