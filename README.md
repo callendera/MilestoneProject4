@@ -303,7 +303,6 @@ All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobil
     ```
     @login_required
 def profile(request):
-    """A view that displays the profile page of a logged in user"""
     if request.user:
         orders = Order.objects.filter(
             user=request.user,
@@ -317,13 +316,12 @@ def profile(request):
                 order.total += product.price * item.quantity
         return render(request, "profile.html", {'orders': orders})
         ```
+
         The Order history function below shows the date and links the user to the specific order history
+
         ```
     @login_required
 def order_history(request):
-    """
-    Retrieves the order history of the user.
-    """
     if request.user:
         orders = Order.objects.filter(
             user=request.user,
@@ -331,17 +329,16 @@ def order_history(request):
             ).order_by('-date')
 
         return render(request, "profile.html", {'orders': orders})
-
         ```
+
         Order info Is triggered when the view details link is clicked. 
         It shows the details of the specific order. The function grabs the order when it is purchased, 
-        it calculates the order total, keeps the product info, and displays it on a new page"
-          ```
+        it calculates the order total, keeps the product info, and displays it on a new page
+
+         ```
     @login_required
 def order_info(request, pk):
-    """
-    This captures order info to then be displayed in profile for user
-    """
+    
     order = get_object_or_404(Order, pk=pk)
     order.save()
     order_total = 0
@@ -357,5 +354,4 @@ def order_info(request, pk):
          'order_total': order_total,
          'product': product},
         )
-
         ```
