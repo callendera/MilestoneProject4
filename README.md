@@ -454,7 +454,7 @@ def add_to_cart(request, id):
             * The checkout app also pulls the cart session to complete the order if the forms are valid
             * If there is an error in the forms, the order will not be processed until the errors are corrected and form is resubmitted.
             * If something is wrong with the card, an error message will displayed explaining the card is declined or not accepted
-            
+
 ```
 @login_required()
 def checkout(request):
@@ -513,3 +513,75 @@ def checkout(request):
             "publishable": settings.STRIPE_PUBLISHABLE})
 
 ```
+
+### Bugs Discovered
+* Solved Bugs:
+    * Order Total not rendering in profile view
+        * I wasn't passing the Order Total through the profile
+    * Adding 2 items to cart at random times
+        * I had unneccesary lines in add_to_cart view that was capturing the product id twice in a row and adding both to cart
+    * Pushing secret key to github
+        * I made the mistake of pushing my code from settings.py that contained my secret key. 
+        I did not deploy the project before moving secret key, so I grabbed a new django secret key.
+        In the past commits, you can see A secret key, but that is not the secret key I am currently using.
+* Unsolved Bugs:
+    * Reset password not sending email
+        * Reset password documentation gave me alot of trouble, I ran out of time and I will be going back to look at this issue after assesment
+### Further Testing
+
+* Asked fellow students, tutors, and mentor to look at my app on a range of devices to report any bugs found.
+
+## Deployment
+
+1. Go to heroku.com dashboard
+2. Click "Create New App"
+3. Make app name: Andreas-Haberdashery-app
+4. Chose region: United States
+5. Click "Create App"
+6. Upon app being created, 
+7. A database needs to be created, Go to Resources in heroku app and create a Postgres Database
+8. Copy Database_url 
+9. Go into terminal in Gitpod and run following command: `pip3 install dj_database_url`
+10. After that is downloaded successfully, run command: `pip3 install psycopg2`, this command connects Postgres
+11. Then run: `pip3 freeze > requirments.txt` this is a requirement for heroku
+12. In settings.py import os and import env and import dj_database_url
+13. Then in setting.py we add the Database_url to be called from env.py to keep it a scroll_to_search_results
+14. Open env.py and add the Database_url key
+15. Run a migration to migrate all of the info to the Postgres database
+16. Create SuperUser `python3 manage.py createsuperuser`
+17. In heroku now, go to settings and "Reveal Configvars"
+18. Now, add all secret keys, database urls, and everything from env.py to the config vars in heroku
+19. click the "Deploy" tab
+20. scroll down to GitHub deploy to Sync heroku with github so when you `git push` it automatically pushes to heroku
+21. Search repo name and click connects
+22. Return to the terminal in GitPod and run command: `pip3 install gunicorn`, this is needed to connect heroku
+23. Creat Procfile, tells heroku what kind of app its' getting
+24. In procfile we put: `web: gunicorn cactus.wsgi:application`
+25. In settings.py add heroku allowed host: 
+```
+ALLOWED_HOSTS = [
+    'localhost',
+    'haberdashery-app.herokuapp.com'
+    ]
+```
+26. In terminal: `git add --all` , `git commit -m "message"` , and `git push` will push to heroku
+27. Go to Heroku and Open App
+
+## Credits
+
+### Content
+* All info about products was derived directly from [Etsy](https://www.etsy.com/?utm_source=google&utm_medium=cpc&utm_term=etsy_e&utm_campaign=Search_US_Brand_GGL_General-Brand_Core_All_HP_Exact&utm_ag=A1&utm_custom1=9cb035e6-31ab-4443-9c8e-178acfd0ea23&utm_content=go_227553629_16342445429_310396601160_aud-424578309581:kwd-1818581752_c_&utm_custom2=227553629&gclid=EAIaIQobChMI5dqi8Ie06QIVUL7ACh3XuQjtEAAYASAAEgK2yPD_BwE)
+* Code was derrived from myself, Studying the Modules and mini-projects in the previous sections, 
+Tutor support (Big thank you to Michael, Scott, Tim, Samantha, And Hayley They were amazing help through out this project), 
+and from exploring various web entities with forums, such as: 
+[W3Schools](https://www.w3schools.com/), 
+[Stack Overflow](https://stackoverflow.com/), and 
+[Slack](https://slack.com/).
+
+### Media
+* The photos used in my webpage were from Google Images, and my own personal images
+
+
+### Acknowledgements
+* I recieved inspiration for this project from The Code Institute's Guidlines for Milestone Project 4
+
