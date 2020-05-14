@@ -81,11 +81,13 @@ def registration(request):
                     request,
                     "You have successfully registered"
                     )
+                return redirect(reverse('profile'))
             else:
                 messages.error(
                     request,
                     "Unable to register your account at this time"
                     )
+            return redirect(reverse('all_products'))
     else:
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
