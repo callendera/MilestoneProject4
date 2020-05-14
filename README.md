@@ -78,6 +78,8 @@ The app is fully functional on all screen sizes with extensive testing for each 
 
 #### Wireframes:
 
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/119a0b187c58ed39c285fc444ca90d894827d06f/static/images/wireframes/0001.jpg)
+
 ![WireFrame](https://i.ibb.co/rFC2Lbk/0001.jpg)
 
 ![WireFrame](https://i.ibb.co/1JD5PWq/0002.jpg)
