@@ -94,3 +94,137 @@ The app is fully functional on all screen sizes with extensive testing for each 
 
 ![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0008.jpg)
 
+## Features
+
+### Existing Features
+* Navbar 
+    * Fixed to the top for easy navigation 
+    * Andrea's Haberdashery Logo in center
+    * Includes: Home|Sign in|Create Account|Cart Each navigates you throughout the app
+    * Search bar also in Navbar, searches product database
+    * Navigation links become a toggler in the mobile veiw and smaller screen sizes
+* Carousel
+    * First slide
+        * If user is not logged in: it gives a welcome message and login or register buttons
+        * If user is logged in: the welcome message chnanges to Hey There and directs the user to brows the products below
+    * Second slide 
+        * This slide gives the user 2 Categories to shop in
+        * Shop Herbal and Shop Succulents runs a search and displays the products that match either search
+    * Third slide   
+        * Tells user about Free Shipping
+* List of all Products
+    * Avaliable when the user navigates to the Home page using the navbar. Displays all products present in the database. 
+    * Each Product has the option to view details or Add to cart 
+* Modal #1
+    * Shows full Product details and description
+    * Option to Add item to cart or close modal.
+* Profile
+    * User profile displays username, email, Order history list in a table
+    * Order History 
+        * This feature is reached through the profile, and is shown in a table the initial look in the profile shows the lists by date and total
+        * The option to view Order Details displays new page that includes product images, quantities, and order total
+* Login/Registration
+    * In the Navbar the user is given the options to login or register, options also given in 1st slide of Carousel
+    * For both the user is directed to new pages with either login or registration form feilds, all are required. 
+    * Sign Out  
+        * To sign out, use the navbar link for signing out. 
+* Cart 
+    * When adding items to the cart the cart option in the Navbar has a badge that displays item amount in the cart
+    * The cart itself is displayed with cart items in individual rows that seperate with a block divider
+    * The products displayed all show product image, product name, short product description, price, Quantity
+    * The items in the cart also have options to remove or edit Qty in the cart. 
+    * At the bottom of the cart the total is shown and the checkout button directs the user to pay.
+* Checkout
+    * After viewing the cart, the checkout presents an Order History with Order total.
+    * below order summary there is a link to go back to cart.
+    * Forms are displayed for personal info for shipping and Card payment info 
+    * At the bottom there are options to submit payment or review order. 
+    * Modal #2 This modal asks if the order looks right, it gives user option to update cart or that it all looks Good
+        * If the Update button is clicked, the user is redirected back to cart to make edits.
+    * When the order is completed the user is redirected to Home Page with Successfully paid message. That order is then available in the order hitory
+
+### Features left to Implement 
+* Reset Password    
+    * I will also include in Bugs, I never got the errors for Reset Password resolved.
+    * Right now the reset password email only shows as sent for some gmail accounts no yahoo or outlook accounts and wont send actual email.
+* Shipping tracker
+    * Was apart of my original plans, but I ran out of time 
+* Product Reviews
+    * Was apart of my original plans, but I ran out of time 
+* Edit User Info in Profile
+    * Was apart of my original plans, but I ran out of time 
+
+## Tools/Technologies
+* [GitPod](https://www.gitpod.io/)
+    * GitPodw hosted my Workspace for this project
+* [Git](https://git-scm.com/)
+    * used to push and commit any and all changes to my repository on GitHub
+* [Bootstrap](https://getbootstrap.com/)
+    * Installed as a dependency Provided my buttons, modals, Navbar, footer, table and basic grid structure. 
+    * Also used django-bootstrap-forms
+* [JQuery](https://jquery.com/)
+    * The project uses JQuery for DOM manipulation (Ex: Modal)
+* [JavaScript](https://www.javascript.com/)
+    * Used along with Bootstrap for the modal, Stripe Payments
+* [SQLite](https://www.sqlite.org/index.html)
+    * used as my local database until I engaged Database Url for Postgres
+* [Heroku](https://signup.heroku.com/t/platform?c=70130000001xDpdAAE&gclid=EAIaIQobChMI_ZvP4LXl5QIVEYzICh1T0g2FEAAYASAAEgIoQPD_BwE)
+    * Deployment of my app Andrea's Haberdashery
+* [Postgres](https://www.postgresql.org/docs/9.2/install-procedure.html)
+    * Database used in Heroku after deployment
+* [S3 Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html)
+    * Stored all static files: CSS, JS, and Images
+* [Travis CI](https://travis-ci.org/)
+    * Runs continuous automated tests
+
+## Testing
+### Automated Testing
+* Validation Services
+    * [W3C Markup Validator](https://validator.w3.org/) was used to validate my HTML code.
+    * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS code.
+    * [JSHint](https://jshint.com/) was used to test JS code.
+    * [Travis CI](https://travis-ci.org/) Runs constant testing.
+
+### UX Stories: Testing / Manual Testing
+All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobile/Tablet features were tested on Apple and Samsung devices. Everything was tested using a wide range of screensizes.
+* As a user I want to:
+    * Login:
+        * After coming to the home page,
+        * I can either use the Navbar login link or the Login option in Slide 1 of the Carousel
+        * After clicking the login button, I am directed to the login page that is triggered by the Login view in the accounts app
+        * The form is all required and if the user has an account then they will be logged in and redirected to the home page.
+        * If the user does not already have an account and tries to login, the user will be shown the errors they have in the field and if the username is not already registered.
+        
+        * Explanation of Login function in Accounts App
+            * The function below shows the login view, It runs checks for user authentication before opening the view.
+            * It then, posts the login form.
+            * Another check is done to make sure form is valid, if it is valid the user is successfully logged in the user is then taken to the home page. 
+            If the form is not valid it will not login the user and it shows the errors that caused the login to fail
+    ```
+    def login(request):
+    """Return a login page"""
+        if request.user.is_authenticated:
+            return redirect(reverse('index'))
+        if request.method == "POST":
+            login_form = UserLoginForm(request.POST)
+
+            if login_form.is_valid():
+                user = auth.authenticate(username=request.POST['username'],
+                                     password=request.POST['password'])
+
+                if user:
+                    auth.login(user=user, request=request)
+                    messages.success(
+                        request,
+                        "You have successfully logged in!"
+                        )
+                    return redirect(reverse('index'))
+                else:
+                    login_form.add_error(
+                        None, 
+                        "Your username or password is incorrect"
+                        )
+            else:
+                login_form = UserLoginForm()
+        return render(request, 'login.html', {'login_form': login_form})
+        ```
