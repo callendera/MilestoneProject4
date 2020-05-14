@@ -187,6 +187,7 @@ The app is fully functional on all screen sizes with extensive testing for each 
 
 ### UX Stories: Testing / Manual Testing
 All features were tested on Google Chrome, Internet Explorer, and Firefox. Mobile/Tablet features were tested on Apple and Samsung devices. Everything was tested using a wide range of screensizes.
+I was on a time crunch with this project, So I decided to just write a few tests for a few things in the app and then I tried to compensate with extensive manual testing throughout the project.
 * Accounts App - As a user I want to:
     * Login:
         * After coming to the home page,
