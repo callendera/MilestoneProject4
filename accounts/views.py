@@ -79,7 +79,7 @@ def registration(request):
                 auth.login(user=user, request=request)
                 messages.success(
                     request,
-                    "You have successfully registered, You can now Log In"
+                    "You have successfully registered"
                     )
             else:
                 messages.error(
