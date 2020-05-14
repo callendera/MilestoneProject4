@@ -31,8 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'haberdashery-app.herokuapp.com',
-    'ec2-54-81-37-115.compute-1.amazonaws.com'
+    'haberdashery-app.herokuapp.com'
     ]
 
 
