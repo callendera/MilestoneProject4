@@ -33,19 +33,19 @@ The UX of the app was designed in a way to provide easy access and simplicity.
 The app is fully functional on all screen sizes with extensive testing for each feature on 1400px, 1200px, 992px, 768px, and 576px screensizes.
 
 #### User Stories:
-    * As a user who would like to browse all products, upon landing on the home page and scrolling down, 
+* As a user who would like to browse all products, upon landing on the home page and scrolling down, 
     all products are listed with the option to add to cart or to view details. 
     All products include an image, product name, shortened product dscription, and price. 
     If the user wants to veiw details while browsing products, when clicking the view details button a modal appears 
     that gives product image, name, a full description and price with an add to cart option or close option. 
     Specific categories of products are also available. If the user selects the shop herbal or shop succulents buttons on 
     second carousel slides, the user will be directed to those items on the home page.
-    * A user is looking for a speicfic product, they come to the landing page and select the search bar. 
+* A user is looking for a speicfic product, they come to the landing page and select the search bar. 
     If they input a value that does not match
     any product in the database a message propmts them to search again. When a search is 
     input that matches items in the database, the screan is then automatically
     scrolled down to search results.
-    * User trying to make a purchase is propmted to sign in before continuing to check out 
+* User trying to make a purchase is propmted to sign in before continuing to check out 
     after adding items to their cart. when user is logged in, they are brought to the checkout once more so they can
     review order summary and then continue to the personal info form, all items are required besides Address 2. 
     Then, the card info is input. The submit button on the form 
@@ -53,7 +53,7 @@ The app is fully functional on all screen sizes with extensive testing for each 
     The modal is populated by items in the customers's cart and then 
     2 options; Update (takes user to cart to edit items), and Looks Good that closes the modal.
     When the user submits payment, a successful payment message appears and the user is take back to home page.
-    * User trying to login or create an account. On the home page, the user is shown a welcome message with some 
+* User trying to login or create an account. On the home page, the user is shown a welcome message with some 
     info about Andrea's Haberdashery. There are also 2 buttons shown
     the 1st one prompts the user to Login, the 2nd asks user to register an account. If he user would like to login, 
     they can use the link in the Navbar to Login or follwo the button on the home page.
@@ -66,12 +66,12 @@ The app is fully functional on all screen sizes with extensive testing for each 
     All fields are required and if the user is successfully registered, then a successful 
     registration message appears and takes the user to the profile page.
     Alternatively the user will Log Out by simply clicking the sign out button in Navbar.
-    * User who has made purchases and wants to see order history/details. AFter logging in, 
+* User who has made purchases and wants to see order history/details. AFter logging in, 
     the user can click on Profile symbol. The user then comes to the profile where their email and username are displayed, 
     then if the user has no order history a message shows under Order History Title that says the user has no order history and to go shop.
     If the user has order history, the history will appear in a list by date in a table. 
     Each order has a view details option that takes the user to another page that contains full item details, prices, and total cost of Order
-    * User making adjustments to cart. After adding items to their cart, the user can go to view their cart, 
+* User making adjustments to cart. After adding items to their cart, the user can go to view their cart, 
     from there the user can remove items and edit the amount or each product. The remove product button shows up as a link
     and instantly removes item from cart. To edit, the user will use arrows to adjust the amount in input 
     field beside Qty and then click the "edit" icon, This automatically updates cart.
