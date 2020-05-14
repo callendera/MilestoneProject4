@@ -80,19 +80,17 @@ The app is fully functional on all screen sizes with extensive testing for each 
 
 ![WireFrame](https://github.com/callendera/MilestoneProject4/blob/119a0b187c58ed39c285fc444ca90d894827d06f/static/images/wireframes/0001.jpg)
 
-![WireFrame](https://i.ibb.co/rFC2Lbk/0001.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0002.jpg)
 
-![WireFrame](https://i.ibb.co/1JD5PWq/0002.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0003.jpg)
 
-![WireFrame](https://i.ibb.co/3ppp3S3/0003.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0004.jpg)
 
-![WireFrame](https://i.ibb.co/MRVydy5/0004.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0005.jpg)
 
-![WireFrame](https://i.ibb.co/wR85sLJ/0005.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0006.jpg)
 
-![WireFrame](https://i.ibb.co/LNXshGk/0006.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0007.jpg)
 
-![WireFrame](https://i.ibb.co/hRRj9kb/0007.jpg)
-
-![WireFrame](https://i.ibb.co/ZVQdrh6/0008.jpg)
+![WireFrame](https://github.com/callendera/MilestoneProject4/blob/9678331417588b80e9ccedb9ec96cc3ffe2405a6/static/images/wireframes/0008.jpg)
 
