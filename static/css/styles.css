@@ -1,6 +1,32 @@
+/* BACKGROUNDS, DIVS, CONTAINERS */
+
 body {
     padding-top: 0;
     /* removes padding from top of body, had issue with pre-set padding with bootstrapforms */
+}
+
+.box-flower-card-spacing {
+    /* gives edge spacing for content in card for slide 2 of carousel in xs screen sizes */
+    margin-right: 100px;
+    margin-bottom: 200px;
+}
+
+.card-background {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.carousel-background {
+    /* background is fixed so the products scroll over it, lands within the carousel */
+    background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 89vh;
 }
 
 .check-out-div-items-padding {
@@ -13,175 +39,33 @@ body {
     /* adds space between Order Summary and payment/personal info */
 }
 
-.my-badge {
-    background-color: #ed68a6;
+footer {
+    /*--- background is a darker grey to set it apart from te rest of webpage ---*/
+    background-color: #7f7f7f;
     color: #ffffff;
-    font-family: 'Kristi', cursive;
+    font-size: 12px;
 }
 
-.adjust-item-button {
-    margin-bottom: 15px;
-    margin-left: 5px;
-    border-color: transparent !important;
-}
-
-
-.heading-font {
-    font-family: 'Kristi', cursive;
-    font-size: 5rem;
-    color: #ed68a6;
-    margin-bottom: 0;
-    margin-top: 100px;
-}
-
-.product-image-in-cart {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    margin-top: 100px;
-}
-
-.my-block-divider {
-    height: 3px;
-    /*--- no outline on divider ---*/
-    border: 0;
-    /*--- color of block divider, light pink and slightly transparent ---*/
-    background-color: #e5abc6;
-}
-
-.carousel-background {
-    background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: contain;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 89vh;
-}
-
-.carousel-indicators li {
-    background-color: #e5abc6;
+.padding-footer-content {
+    padding: 20px
 }
 
 form {
     width: 50%;
 }
 
-.width-removal {
-    width: 100% !important;
-}
-
-.intro-font-size-space {
-    margin-top: 0;
-    font-size: 20px;
-}
-.my-btn-center {
-    margin-right: 43px;
-}
-
-.box-flower-sizing-spacing {
-    width: 100px;
-    height: 100px;
-    margin-left: 95px;
-}
-
-.card-image-sizing-spacing{
-    width: 150px;
-    height: 150px;
-    margin-left: 70px;
-}
-
-.box-flower-card-spacing {
-    margin-right: 100px;
-    margin-bottom: 200px;
-}
-
-.my-card-spacing {
-    margin-right: 100px;
-}
-
-.card-background {
-    border-color: transparent;
-    background-color: transparent;
-}
-
-.my-search-icon {
-  color: #7f7f7f;  
-}
-
-.my-navbar-brand {
-    margin-right: 0;
-}
-
-.spacing-navbar-navs {
-    width: 600px;
-    justify-content: flex-end;
-}
-
 .my-input-line {
+    /* used in search bar input */
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     width: 200px;
 }
 
-.search-btn {
-    background-color: transparent;
-    border: 0px;
+.my-card-spacing {
+    margin-right: 100px;
 }
 
-.my-navbar {
-    background-color: white;
-    padding-left: 40px;
-    padding-right: 20px;
-}
-
-.my-nav-item {
-    padding: 15px;
-}
-
-.my-logo {
-    height: 75px;
-    width: 100px;
-}
-.kristi-font-unset-size {
-    font-family: 'Kristi', cursive;
-    color: #ed68a6;
-    margin-bottom: 40px;
-}
-.kristi-font-shipping {
-    font-family: 'Kristi', cursive;
-    font-size: 3rem;
-    color: #ed68a6;
-    margin-top: 170px;
-    margin-bottom: 20px;
-}
-.kristi-font {
-    font-family: 'Kristi', cursive;
-    font-size: 5rem;
-    color: #ed68a6;
-    margin-bottom: 0;
-}
-
-.kristi-font-alert-message {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 20px;
-    
-}
-
-.didact-gothic-font {
-    font-family: 'Didact Gothic', sans-serif;
-}
-
-.arimo-font {
-    font-family: 'Arimo', sans-serif;
-
-}
 .my-second-carousel-item{
     margin-bottom: 200px;
 }
@@ -190,6 +74,37 @@ form {
 }
 .my-loggedin-carousel-item {
     margin-bottom: 450px;
+}
+
+.row.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 20px;
+}
+
+.panel-body {
+    padding: 10px;
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.width-removal {
+    /* The width for all forms are set to 50%, this removes that width from certain forms */
+    width: 100% !important;
+}
+
+ /* BUTTONS, LINKS */
+
+.adjust-item-button {
+    margin-bottom: 15px;
+    margin-left: 5px;
+    border-color: transparent !important;
+    /* gets rid of border so user just sees the icon */
 }
 
 .button-login-color {
@@ -204,10 +119,10 @@ form {
 }
 
 .button-login-color:hover, .button-register-color:hover {
-    /*--- color of background: darker green ---*/
+    /*--- color of background: darker pink ---*/
     background-color: #ed68a6;
     color: #ffffff;
-    /*--- when mouse is hovered the button will transition for .40seconds to a darker green color.
+    /*--- when mouse is hovered the button will transition for .20seconds to a darker pink color.
     the color will gradually ease in and then ease out. ---*/
     transition: all 0.20s ease-in-out;
     -moz-transition: all 0.20s ease-in-out;
@@ -221,22 +136,8 @@ form {
 }
 
 .prev-arrow-spacing {
+    /*--- keeps arrows from overflowing ---*/
     margin-right: 60px;
-}
-
-.next-arrow-spacing {
-    margin-left: 60px;
-}
-
-footer {
-    /*--- background is a darker grey to set it apart from te rest of webpage ---*/
-    background-color: #7f7f7f;
-    color: #ffffff;
-    font-size: 12px;
-}
-
-.padding-footer-content {
-    padding: 20px
 }
 
 .footer-social-media {
@@ -246,7 +147,7 @@ footer {
 }
 
 .footer-social-media i {
-    /*---blue color--*/
+    /*---light pink color--*/
     color: #e5abc6;
     font-size: 20px;
     padding: 15px;
@@ -265,7 +166,121 @@ footer {
     /*--- adjustments for each web browser ---*/
 }
 
+.next-arrow-spacing {
+    /*--- keeps arrows from overflowing ---*/
+    margin-left: 60px;
+}
+
+.carousel-indicators li {
+    background-color: #e5abc6;
+}
+
+.my-badge {
+    background-color: #ed68a6;
+    color: #ffffff;
+    font-family: 'Kristi', cursive;
+}
+
+.my-btn-center {
+    /* used in first slide of carousel to strattle login and register buttons on either side of background image */
+    margin-right: 43px;
+}
+
+.my-search-icon {
+  color: #7f7f7f;  
+}
+
+.search-btn {
+    background-color: transparent;
+    border: 0px;
+}
+
+.spacing-navbar-navs {
+    /* sends navbar links to right side. width is needed to give space to navbar brand */
+    width: 600px;
+    justify-content: flex-end;
+}
+
+/* FONTS */
+
+.arimo-font {
+    font-family: 'Arimo', sans-serif;
+
+}
+
+.box-flower-sizing-spacing {
+    /* different image for xs screensizes in slide 2 of carousel, this adjusts it to be center with button to shop now */
+    width: 100px;
+    height: 100px;
+    margin-left: 95px;
+}
+
+.card-image-sizing-spacing{
+    /* size for product image in card on all_products view */
+    width: 150px;
+    height: 150px;
+    margin-left: 70px;
+}
+
+.didact-gothic-font-alert-message {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    
+}
+
+.didact-gothic-font {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.heading-font {
+    font-family: 'Kristi', cursive;
+    font-size: 5rem;
+    color: #ed68a6;
+    margin-bottom: 0;
+    margin-top: 100px;
+    /* margin-top pulls heading from behind navbar */
+}
+
+.intro-font-size-space {
+    /* used in callout for word spacing and font size */
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.kristi-font-unset-size {
+    /* removes font size for specific texts that have kristi-font */
+    font-family: 'Kristi', cursive;
+    color: #ed68a6;
+    margin-bottom: 40px;
+}
+.kristi-font-shipping {
+    /* creates specified font, sizing, spacing in 3rd slide of carousel */
+    font-family: 'Kristi', cursive;
+    font-size: 3rem;
+    color: #ed68a6;
+    margin-top: 170px;
+    margin-bottom: 20px;
+}
+.kristi-font {
+    font-family: 'Kristi', cursive;
+    font-size: 5rem;
+    color: #ed68a6;
+    margin-bottom: 0;
+}
+
+.product-description {
+    min-height: 40px;
+}
+
+/* IMAGES */
+
+.my-logo {
+    height: 75px;
+    width: 100px;
+}
+
 .product-image {
+    /*--- Image on product cards in product.html ---*/
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -274,31 +289,38 @@ footer {
     margin: 0 auto;
 }
 
-caption p {
-    word-wrap: break-word;
+.product-image-in-cart {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
-.row.row-flex {
-display: flex;
-flex-wrap: wrap;
-margin-top: 30px;
+/* NAVBAR, BLOCK DIVIDER */
+
+.my-block-divider {
+    height: 3px;
+    /*--- no outline on divider ---*/
+    border: 0;
+    background-color: #e5abc6;
 }
 
-.panel-default {
-    border-color: transparent;
-    padding: 20px;
+.my-navbar-brand {
+    /* helps make navbar brand/logo be centered */
+    margin-right: 0;
 }
 
-
-
-.panel-body {
-    padding: 10px;
-    height: 100%;
-    border: 1px solid #ddd;
+.my-navbar {
+    background-color: white;
+    padding-left: 40px;
+    padding-right: 20px;
 }
 
-.product-description {
-    min-height: 40px;
+.my-nav-item {
+    padding: 15px;
 }
 
 /*---MEDIA QUERIES---*/
@@ -306,94 +328,74 @@ margin-top: 30px;
 /*--- adjustemnts for different screensizes, small-->big ---*/
 
 @media (min-width: 576px) {
+
+    .adjust-item-button {
+        margin-bottom: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+        /* creates margin around the icon to move it off of the Qty input */
+    }
+
     .carousel-background {
         background: url(../../static/images/linepots.jpeg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
         background-size: contain;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 77vh;
     }
-    .adjust-item-button {
-        margin-bottom: 0px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    .my-navbar-brand {
-        margin-left: 0;
-    }
-    .kristi-font {
-        margin-bottom: 0;
-    }
+    
     .intro-font-size-space {
         margin-top: 0;
         font-size: 25px;
     }
+
+    .kristi-font {
+        margin-bottom: 0;
+    }
+
     .kristi-font-shipping {
         margin-top: 0px;
     }
-    .my-card-spacing {
-        margin-right: 0px;
-    }
+
     .my-btn-center {
         margin-right: 43px;
     }
-    .my-second-carousel-item {
-        margin-bottom: 380px;
-    }
-    .prev-arrow-spacing {
-        margin-right: 70px;
-    }
-    .next-arrow-spacing {
-        margin-left: 70px;
-    }
+    
     .my-carousel-item{
         margin-bottom: 540px;
     }
+    
+    .my-card-spacing {
+        margin-right: 0px;
+    }
+    
     .my-loggedin-carousel-item {
         margin-bottom: 350px;
+    }
+
+    .my-navbar-brand {
+        margin-left: 0;
+    }
+
+    .my-second-carousel-item {
+        margin-bottom: 380px;
+    }
+
+    .next-arrow-spacing {
+        margin-left: 70px;
+    }
+
+    .prev-arrow-spacing {
+        margin-right: 70px;
     }
 }
 
 @media (min-width: 768px) {
-    .my-navbar-brand {
-        margin-left: 0;
-    }
-    .kristi-font {
-        margin-bottom: 0;
-    }
-    .my-second-carousel-item {
-        margin-bottom: 300px;
-    }
-    .my-card-spacing {
-        margin-right: 110px;
-    }
-    .my-carousel-item{
-        margin-bottom: 0px;
-        margin-top: 150px;
-    }
-    .my-loggedin-carousel-item {
-        margin-bottom: 0px;
-        margin-top: 120px;
-    }
-    .intro-font-size-space {
-        font-size: 30px;
-    }
-    .my-btn-center {
-        margin-right: 43px;
-    }
-    .prev-arrow-spacing {
-        margin-right: 100px;
-    }
-    .next-arrow-spacing {
-        margin-left: 100px;
-    }
-    .kristi-font-shipping {
-        margin-top: 0px;
-    }
+
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
          -webkit-background-size: cover;
@@ -405,63 +407,146 @@ margin-top: 30px;
         justify-content: center;
         height: 85vh;
     }
+
+    .kristi-font {
+        margin-bottom: 0;
+    }
+
+    .kristi-font-shipping {
+        margin-top: 0px;
+    }
+
+    .my-btn-center {
+        margin-right: 43px;
+    }
+
+    .my-carousel-item{
+        margin-bottom: 0px;
+        margin-top: 150px;
+    }
+
+    .my-card-spacing {
+        margin-right: 110px;
+    }
+
+    .my-navbar-brand {
+        margin-left: 0;
+    }
+    
+    .my-second-carousel-item {
+        margin-bottom: 300px;
+    }
+    
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 120px;
+    }
+    .next-arrow-spacing {
+        margin-left: 100px;
+    }
+
+    .prev-arrow-spacing {
+        margin-right: 100px;
+    }
+
+    .intro-font-size-space {
+        font-size: 30px;
+    } 
+
 }
 
 @media (min-width: 992px) {
+
+    .carousel-background {
+        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
+        height: 80vh;
+    }
+
+    .kristi-font-shipping {
+        margin-top: 0px;
+    }
+
+    .intro-font-size-space {
+        font-size: 30px;
+    }
+
+    .my-btn-center {
+        margin-right: 43px;
+    }
+
+    .my-carousel-item{
+        margin-bottom: 0px;
+        margin-top: 250px;
+    }
+
+    .my-card-spacing {
+        margin-right: 115px;
+    }
+
     .my-navbar-brand {
         margin-left: 0;
     }
     .my-second-carousel-item {
         margin-bottom: 250px;
     }
-    .my-carousel-item{
-        margin-bottom: 0px;
-        margin-top: 250px;
-    }
+    
     .my-loggedin-carousel-item {
         margin-bottom: 0px;
         margin-top: 250px;
     }
-    .kristi-font-shipping {
-        margin-top: 0px;
-    }
-    .intro-font-size-space {
-        font-size: 30px;
-    }
-    .my-card-spacing {
-        margin-right: 115px;
-    }
-    .my-btn-center {
-        margin-right: 43px;
-    }
-    .prev-arrow-spacing {
-        margin-right: 40px;
-    }
+    
     .next-arrow-spacing {
         margin-left: 40px;
     }
-    .carousel-background {
-        background: url(../../static/images/potted.jpg) no-repeat center center fixed;
-        height: 80vh;
+
+    .prev-arrow-spacing {
+        margin-right: 40px;
     }
 
 }
 
 @media (min-width: 1200px) {
-   .my-navbar-brand {
-        margin-right: 200px;
-        padding-right: 270px;
+
+    .carousel-background {
+        background: url(../../static/images/girl.jpg) no-repeat center center fixed;
+        height: 70vh;
     }
+
     .heading-font {
         margin-top: 200px;
     }
+
     .intro-font-size-space {
         font-size: 30px;
     }
+
+    .kristi-font {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
     .my-carousel-item {
         margin-bottom: 0px;
         margin-top: 20px;
     }
+
+    .my-btn-center {
+        margin-right: 43px;
+    }
+    
+    .my-second-carousel-item {
+        margin-bottom: 90px;
+    }
+
+   .my-navbar-brand {
+        margin-right: 200px;
+        padding-right: 270px;
+    }
+    
+    .my-card-spacing {
+        margin-right: 110px;
+    }
+    
     .my-loggedin-carousel-item {
         margin-bottom: 0px;
         margin-top: 150px;
@@ -473,73 +558,11 @@ margin-top: 30px;
     .spacing-navbar-navs {
         width: 0;
     }
-    .my-card-spacing {
-        margin-right: 110px;
-    }
-    .kristi-font {
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-    .my-btn-center {
-        margin-right: 43px;
-    }
-    .carousel-background {
-        background: url(../../static/images/girl.jpg) no-repeat center center fixed;
-        height: 70vh;
-    }
-    .my-second-carousel-item {
-        margin-bottom: 90px;
-    }
+    
 }
 
 @media (min-width: 1400px) {
-    .my-navbar-brand {
-        margin-left: 0;
-        padding-right: 400px;
-    }
-    .intro-font-size-space {
-        font-size: 30px;
-    }
-    .heading-font {
-        margin-top: 240px;
-    }
-    .loggedin-intro-font-size-space {
-        font-size: 30px;
-        margin-bottom: 40px;
-    }
-    .my-logo {
-        height: 200px;
-        width: 250px;
-    }
-    .register-col-center {
-        margin-right: 35px;
-        margin-top: 0;
-    }
-    .kristi-font {
-        font-size: 10rem;
-    }
-    .my-carousel-item {
-        margin-bottom: 0px;
-    }
-    .my-loggedin-carousel-item {
-        margin-bottom: 0px;
-    }
-    .my-second-carousel-item {
-        margin-bottom: 0px;
-        margin-top: 100px;
-    }
-    .my-card-spacing {
-        margin-right: 100px;
-    }
-    .prev-arrow-spacing {
-        margin-right: 200px;
-    }
-    .my-btn-center {
-        margin-right: 43px;
-    }
-    .next-arrow-spacing {
-        margin-left: 200px;
-    }
+
     .carousel-background {
         background: url(../../static/images/potted.jpg) no-repeat center center fixed;
         -webkit-background-size: contain;
@@ -551,9 +574,66 @@ margin-top: 30px;
         justify-content: center;
         height: 60vh;
     }
+
     .container-fluid {
         padding-left: 15px;
     }
+
+    .heading-font {
+        margin-top: 240px;
+    }
+
+    .intro-font-size-space {
+        font-size: 30px;
+    }
+
+    .kristi-font {
+        font-size: 10rem;
+    }
+
+    .loggedin-intro-font-size-space {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+     .my-btn-center {
+        margin-right: 43px;
+    }
+
+    .my-carousel-item {
+        margin-bottom: 0px;
+    }
+
+    .my-card-spacing {
+        margin-right: 100px;
+    }
+
+    .my-navbar-brand {
+        margin-left: 0;
+        padding-right: 400px;
+    }
+    
+    .my-loggedin-carousel-item {
+        margin-bottom: 0px;
+    }
+    .my-second-carousel-item {
+        margin-bottom: 0px;
+        margin-top: 100px;
+    }
+    
+    .my-logo {
+        height: 200px;
+        width: 250px;
+    }
+
+    .next-arrow-spacing {
+        margin-left: 200px;
+    }
+
+    .prev-arrow-spacing {
+        margin-right: 200px;
+    }
+
     .product-image-in-cart {
         background-size: cover;
         background-position: center center;
@@ -563,6 +643,10 @@ margin-top: 30px;
         margin: 0 auto;
         margin-top: 100px;
     }
-    
-}
 
+    .register-col-center {
+        margin-right: 35px;
+        margin-top: 0;
+    }
+
+}
